@@ -1,0 +1,21 @@
+{
+    "NAV": {
+        "HOME": "HOME",
+        "TERMINOLOGY": "TERMINOLOGY",
+        "LIBRARY": "LIBRARY",
+        "THESES": "ACADEMIC THESES",
+        "NEWS": "NEWS",
+        "COMMUNITY": "COMMUNITY",
+        "ABOUT": "ABOUT US"
+    },
+    "FOOTER": {
+        "COPYRIGHT": "© 2026 Islamic Translation. All rights reserved.",
+        "CONTACT": "Contact Us",
+        "FOLLOW": "Follow Us"
+    },
+    "HERO": {
+        "TITLE": "Welcome to Islamic Translation",
+        "SUBTITLE": "Bridging cultures through knowledge",
+        "CTA": "Explore Library"
+    }
+}

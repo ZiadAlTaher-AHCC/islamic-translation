@@ -1,0 +1,53 @@
+<div class="hero-slider">
+    <!-- Slides Container -->
+    <div class="slides-wrapper"
+        [style.transform]="'translateX(' + (translationService.direction() === 'rtl' ? (currentSlide() * 100) : -(currentSlide() * 100)) + '%)'">
+
+        <!-- Slide 1 -->
+        <div class="slide slide-1">
+            <div class="slide-content container">
+                <h1>{{ translationService.translations()['HERO']?.['TITLE'] }}</h1>
+                <p>{{ translationService.translations()['HERO']?.['SUBTITLE'] }}</p>
+                <button class="cta-button primary">{{ translationService.translations()['HERO']?.['CTA'] }}</button>
+            </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="slide slide-2">
+            <div class="slide-content container">
+                <h1>{{ translationService.translations()['NAV']?.['LIBRARY'] }}</h1>
+                <p>Explore our vast collection of Islamic texts and translations.</p>
+                <button class="cta-button primary">Read More</button>
+            </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="slide slide-3">
+            <div class="slide-content container">
+                <h1>{{ translationService.translations()['NAV']?.['COMMUNITY'] }}</h1>
+                <p>Join a community of scholars and students worldwide.</p>
+                <button class="cta-button primary">Join Us</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Controls -->
+    <button class="nav-btn prev" (click)="prevSlide()" aria-label="Previous Slide">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+        </svg>
+    </button>
+    <button class="nav-btn next" (click)="nextSlide()" aria-label="Next Slide">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
+        </svg>
+    </button>
+
+    <!-- Indicators -->
+    <div class="indicators">
+        <span *ngFor="let i of [0,1,2]; let idx = index" class="dot" [class.active]="currentSlide() === idx"
+            (click)="goToSlide(idx)">
+        </span>
+    </div>
+</div>

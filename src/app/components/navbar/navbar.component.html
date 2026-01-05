@@ -1,0 +1,49 @@
+<nav class="navbar" [class.open]="isMenuOpen()">
+    <div class="container navbar-content">
+
+        <!-- Logo -->
+        <a routerLink="/" class="logo" (click)="closeMenu()">
+            <span class="logo-text">Islamic<span class="highlight">Translation</span></span>
+        </a>
+
+        <!-- Hamburger Menu (Mobile) -->
+        <button class="hamburger" (click)="toggleMenu()" aria-label="Toggle Navigation">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <!-- Navigation Links -->
+        <div class="nav-links-wrapper" [class.active]="isMenuOpen()">
+            <ul class="nav-links">
+                <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+                        (click)="closeMenu()">
+                        {{ translationService.translations()['NAV']?.['HOME'] }}
+                    </a></li>
+                <li><a routerLink="/terminology" routerLinkActive="active" (click)="closeMenu()">
+                        {{ translationService.translations()['NAV']?.['TERMINOLOGY'] }}
+                    </a></li>
+                <li><a routerLink="/library" routerLinkActive="active" (click)="closeMenu()">
+                        {{ translationService.translations()['NAV']?.['LIBRARY'] }}
+                    </a></li>
+                <li><a routerLink="/theses" routerLinkActive="active" (click)="closeMenu()">
+                        {{ translationService.translations()['NAV']?.['THESES'] }}
+                    </a></li>
+                <li><a routerLink="/news" routerLinkActive="active" (click)="closeMenu()">
+                        {{ translationService.translations()['NAV']?.['NEWS'] }}
+                    </a></li>
+                <li><a routerLink="/community" routerLinkActive="active" (click)="closeMenu()">
+                        {{ translationService.translations()['NAV']?.['COMMUNITY'] }}
+                    </a></li>
+                <li><a routerLink="/about" routerLinkActive="active" (click)="closeMenu()">
+                        {{ translationService.translations()['NAV']?.['ABOUT'] }}
+                    </a></li>
+            </ul>
+
+            <!-- Language Switcher -->
+            <button class="lang-switch" (click)="toggleLanguage()">
+                {{ translationService.currentLang() === 'en' ? 'عربي' : 'English' }}
+            </button>
+        </div>
+    </div>
+</nav>

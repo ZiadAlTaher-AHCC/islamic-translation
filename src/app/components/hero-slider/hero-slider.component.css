@@ -1,0 +1,188 @@
+.hero-slider {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+    background-color: var(--color-black);
+}
+
+.slides-wrapper {
+    display: flex;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+    will-change: transform;
+}
+
+/* RTL Support in Wrapper handled via inline style transformations for simplicity in sliding logic */
+:host-context([dir="rtl"]) .slides-wrapper {
+    flex-direction: row-reverse;
+    /* This might conflict with the transform logic. 
+     Better approach for RTL Slider: 
+     Keep row-reverse but let the transform logic handle direction.
+     Actually, for simple sliding, just multiplying by positive/negative in TS is easier.
+     I put the logic in the HTML template [style.transform].
+  */
+}
+
+.slide {
+    min-width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* Backgrounds */
+.slide-1 {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+}
+
+.slide-2 {
+    background: linear-gradient(135deg, var(--color-secondary), var(--color-black));
+}
+
+.slide-3 {
+    background: linear-gradient(135deg, var(--color-accent), var(--color-primary));
+}
+
+/* Overlay Pattern (Pseudo-element) */
+.slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 20px, transparent 20px),
+        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 40px, transparent 40px);
+    pointer-events: none;
+}
+
+.slide-content {
+    color: var(--color-white);
+    z-index: 2;
+    text-align: center;
+    width: 100%;
+}
+
+.slide-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: var(--spacing-sm);
+    font-family: 'Cairo', 'Inter', sans-serif;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.slide-content p {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-md);
+    opacity: 0.9;
+}
+
+.cta-button {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    font-weight: 700;
+    transition: var(--transition-fast);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cta-button.primary {
+    background-color: var(--color-highlight);
+    color: var(--color-primary);
+}
+
+.cta-button.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 253, 143, 0.4);
+}
+
+/* Controls */
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.2);
+    color: var(--color-white);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    z-index: 10;
+}
+
+.nav-btn:hover {
+    background-color: var(--color-white);
+    color: var(--color-primary);
+}
+
+.nav-btn.prev {
+    left: 20px;
+}
+
+.nav-btn.next {
+    right: 20px;
+}
+
+:host-context([dir="rtl"]) .nav-btn.prev {
+    left: auto;
+    right: 20px;
+    transform: translateY(-50%) rotate(180deg);
+}
+
+:host-context([dir="rtl"]) .nav-btn.next {
+    right: auto;
+    left: 20px;
+    transform: translateY(-50%) rotate(180deg);
+}
+
+/* Indicators */
+.indicators {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.dot.active {
+    background-color: var(--color-highlight);
+    transform: scale(1.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-slider {
+        height: 500px;
+    }
+
+    .slide-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .slide-content p {
+        font-size: 1.1rem;
+    }
+
+    .nav-btn {
+        width: 40px;
+        height: 40px;
+    }
+}
