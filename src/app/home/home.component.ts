@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { HeroSliderComponent } from '../components/hero-slider/hero-slider.component';
+import { TranslationService } from '../core/services/translation.service';
 
 @Component({
   selector: 'app-home',
@@ -10,4 +11,5 @@ import { HeroSliderComponent } from '../components/hero-slider/hero-slider.compo
 })
 export class HomeComponent {
 
+  translationService = inject(TranslationService);
 }

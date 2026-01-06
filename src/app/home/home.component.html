@@ -1,33 +1,135 @@
 <app-hero-slider></app-hero-slider>
 
-<div class="container section">
-    <h2 style="text-align: center; margin-bottom: 2rem; color: var(--color-primary);">Featured Content</h2>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-        <!-- Placeholder Cards -->
-        <div style="background: white; padding: 2rem; border-radius: 8px; box-shadow: var(--shadow-md);">
-            <h3 style="color: var(--color-secondary); margin-bottom: 1rem;">Latest Translations</h3>
-            <p>Explore the newest additions to our library of Islamic texts.</p>
-        </div>
-        <div style="background: white; padding: 2rem; border-radius: 8px; box-shadow: var(--shadow-md);">
-            <h3 style="color: var(--color-secondary); margin-bottom: 1rem;">Community Events</h3>
-            <p>Join our upcoming webinars and discussion groups.</p>
-        </div>
-        <div style="background: white; padding: 2rem; border-radius: 8px; box-shadow: var(--shadow-md);">
-            <h3 style="color: var(--color-secondary); margin-bottom: 1rem;">Academic Research</h3>
-            <p>Read the latest theses and academic papers from our scholars.</p>
+<div class="section-light-bg">
+    <div class="container text-center">
+        <h2 class="title-primary">
+            {{ translationService.translations()['HOME']?.['OUR_MESSAGE'] }}
+        </h2>
+        <p class="subtitle">{{ translationService.translations()['HOME']?.['STATIC_CONTENT'] }}</p>
+        <div class="flex-center">
+            <button class="btn-primary">
+                {{ translationService.translations()['NAV']?.['ABOUT'] }}
+            </button>
         </div>
     </div>
 </div>
 
-<div class="section" style="background-color: var(--color-light-bg); padding: 4rem 0; margin-top: 4rem;">
-    <div class="container" style="text-align: center;">
-        <h2 style="color: var(--color-primary); margin-bottom: 1rem;">Join Our Newsletter</h2>
-        <p style="margin-bottom: 2rem;">Stay updated with the latest news and translations.</p>
-        <div style="display: flex; justify-content: center; gap: 1rem; max-width: 500px; margin: 0 auto;">
-            <input type="email" placeholder="Enter your email"
-                style="flex: 1; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px;">
-            <button
-                style="background: var(--color-primary); color: white; padding: 0.75rem 2rem; border-radius: 4px; font-weight: bold;">Subscribe</button>
+<div class="container section">
+    <a href="">
+        <h2 class="title-primary text-center subtitle">
+            {{ translationService.translations()['HOME']?.['SECTIONS'] }}
+        </h2>
+    </a>
+    <div class="grid-layout">
+        <!-- Quran Translation -->
+        <div class="card">
+            <a href="">
+                <h3 class="title-secondary">
+                    {{ translationService.translations()['HOME']?.['QURAN_TRANSLATION'] }}
+                </h3>
+            </a>
+            <p>Read and explore comprehensive translations of the Holy Quran.</p>
+        </div>
+
+        <!-- Hadith Translation -->
+        <div class="card">
+            <a href="">
+                <h3 class="title-secondary">
+                    {{ translationService.translations()['HOME']?.['HADITH_TRANSLATION'] }}
+                </h3>
+            </a>
+            <p>Access authentic translations of prophetic traditions.</p>
+        </div>
+
+        <!-- Ayah Translation -->
+        <div class="card">
+            <a href="">
+                <h3 class="title-secondary">
+                    {{ translationService.translations()['HOME']?.['AYA_TRANSLATION'] }}
+                </h3>
+            </a>
+            <p>Explore detailed translations and reflections on individual verses.</p>
+        </div>
+
+        <!-- Arabic Academic Research -->
+        <div class="card">
+            <a href="">
+                <h3 class="title-secondary">
+                    {{ translationService.translations()['HOME']?.['ARABIC_ACADEMIC_RESEARCHES'] }}
+                </h3>
+            </a>
+            <p>Discover scholarly works and academic studies in Arabic.</p>
+        </div>
+
+        <!-- English Academic Research -->
+        <div class="card">
+            <a href="">
+                <h3 class="title-secondary">
+                    {{ translationService.translations()['HOME']?.['ENGLISH_ACADEMIC_RESEARCHES'] }}
+                </h3>
+            </a>
+            <p>Read global perspectives and academic research in English.</p>
+        </div>
+
+        <!-- Quran Books -->
+        <div class="card">
+            <a href="">
+                <h3 class="title-secondary">
+                    {{ translationService.translations()['HOME']?.['QURAN_BOOKS'] }}
+                </h3>
+            </a>
+            <p>Browse our collection of specialized books on Quranic sciences.</p>
+        </div>
+
+        <!-- Hadith Books -->
+        <div class="card">
+            <a href="">
+                <h3 class="title-secondary">
+                    {{ translationService.translations()['HOME']?.['HADITH_BOOKS'] }}
+                </h3>
+            </a>
+            <p>Deepen your knowledge with authoritative books on Hadith.</p>
+        </div>
+
+        <!-- Specialists Center -->
+        <div class="card">
+            <a href="">
+                <h3 class="title-secondary">
+                    {{ translationService.translations()['HOME']?.['SPECIALISTS_CENTER'] }}
+                </h3>
+            </a>
+            <p>Connect with experts and researchers in Islamic translation.</p>
+        </div>
+
+        <!-- Community Events -->
+        <div class="card">
+            <a href="">
+                <h3 class="title-secondary">
+                    {{ translationService.translations()['HOME']?.['COMMUNITY_EVENTS'] }}
+                </h3>
+            </a>
+            <p>Join our upcoming webinars, discussion groups, and workshops.</p>
+        </div>
+
+        <!-- News -->
+        <div class="card">
+            <a href="">
+                <h3 class="title-secondary">
+                    {{ translationService.translations()['HOME']?.['NEWS'] }}
+                </h3>
+            </a>
+            <p>Stay updated with the latest announcements and happenings.</p>
+        </div>
+    </div>
+</div>
+
+<div class="section-light-bg">
+    <div class="container text-center">
+        <h2 class="title-primary">Join Our Newsletter</h2>
+        <p class="subtitle">Stay updated with the latest news and translations.</p>
+        <div class="flex-center">
+            <input type="email" placeholder="Enter your email" class="input-field">
+            <button class="btn-primary">Subscribe</button>
         </div>
     </div>
 </div>

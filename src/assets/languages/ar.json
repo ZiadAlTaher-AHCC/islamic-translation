@@ -17,5 +17,20 @@
         "TITLE": "مرحباً بكم في الترجمة الإسلامية",
         "SUBTITLE": "جسر التواصل الثقافي والمعرفي",
         "CTA": "تصفح المكتبة"
+    },
+    "HOME": {
+        "SECTIONS": "الاقسام",
+        "AYA_TRANSLATION": "ترجمة الآيات",
+        "COMMUNITY_EVENTS": "فعاليات المجتمع",
+        "ARABIC_ACADEMIC_RESEARCHES": "البحث العلمي العربي",
+        "ENGLISH_ACADEMIC_RESEARCHES": "البحث العلمي الانجليزيه",
+        "HADITH_TRANSLATION": "ترجمة الأحاديث",
+        "QURAN_TRANSLATION": "ترجمة القرآن",
+        "NEWS": "الأخبار",
+        "SPECIALISTS_CENTER": "مركز المختصين",
+        "QURAN_BOOKS": "كتب القرآن",
+        "HADITH_BOOKS": "كتب الأحاديث الشريفة",
+        "OUR_MESSAGE": "رسالتنا",
+        "STATIC_CONTENT": "محتوى ثابت محتوى ثابت محتوى ثابت محتوى ثابت محتوى ثابت محتوى ثابت محتوى ثابت محتوى ثابت محتوى ثابت محتوى ثابت محتوى ثابت محتوى ثابت محتوى ثابت "
     }
 }

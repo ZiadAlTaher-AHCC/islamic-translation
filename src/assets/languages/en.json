@@ -17,5 +17,20 @@
         "TITLE": "Welcome to Islamic Translation",
         "SUBTITLE": "Bridging cultures through knowledge",
         "CTA": "Explore Library"
+    },
+    "HOME": {
+        "SECTIONS": "Sections",
+        "AYA_TRANSLATION": "Ayah Translation",
+        "COMMUNITY_EVENTS": "Community Events",
+        "ARABIC_ACADEMIC_RESEARCHES": "Academic Research",
+        "ENGLISH_ACADEMIC_RESEARCHES": "Academic Research",
+        "HADITH_TRANSLATION": "Hadith Translation",
+        "QURAN_TRANSLATION": "Quran Translation",
+        "NEWS": "News",
+        "SPECIALISTS_CENTER": "Specialists Center",
+        "QURAN_BOOKS": "Quran Books",
+        "HADITH_BOOKS": "Hadith Books",
+        "OUR_MESSAGE": "Our Message",
+        "STATIC_CONTENT": "Static Content Static Content Static Content Static Content Static Content Static Content Static Content"
     }
 }
