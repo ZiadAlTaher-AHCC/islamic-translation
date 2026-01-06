@@ -1,0 +1,24 @@
+<div class="card">
+    <!-- Image section - only shown if imageUrl exists -->
+    <div class="card-image" *ngIf="card.imageUrl">
+        <img [src]="card.imageUrl" [alt]="card.title">
+    </div>
+
+    <!-- Content section -->
+    <div class="card-content">
+        <!-- Clickable title -->
+        <h3 class="card-title">
+            <a *ngIf="card.navigationUrl; else plainTitle" [routerLink]="card.navigationUrl" class="card-link">
+                {{ card.title }}
+            </a>
+            <ng-template #plainTitle>
+                {{ card.title }}
+            </ng-template>
+        </h3>
+
+        <!-- Truncated description -->
+        <p class="card-description">
+            {{ getTruncatedDescription() }}
+        </p>
+    </div>
+</div>

@@ -32,5 +32,19 @@
         "HADITH_BOOKS": "Hadith Books",
         "OUR_MESSAGE": "Our Message",
         "STATIC_CONTENT": "Static Content Static Content Static Content Static Content Static Content Static Content Static Content"
+    },
+    "PAGES": {
+        "NEWS_EVENTS": "News & Events",
+        "ARTICLES": "Articles",
+        "LIBRARY": "Library",
+        "LIBRARY_CATEGORY": "Library: {category}"
+    },
+    "LIBRARY": {
+        "CATEGORIES": {
+            "QURAN_BOOKS": "Quran Books",
+            "HADITH_BOOKS": "Hadith Books",
+            "ISLAMIC_HISTORY": "Islamic History",
+            "ISLAMIC_JURISPRUDENCE": "Islamic Jurisprudence"
+        }
     }
 }

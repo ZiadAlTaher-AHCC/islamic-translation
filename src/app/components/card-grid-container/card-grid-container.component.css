@@ -1,0 +1,144 @@
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem;
+}
+
+/* Header */
+.container-header {
+    margin-block-end: 1.5rem;
+    text-align: center;
+}
+
+.container-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin: 0;
+}
+
+/* Cards Grid */
+.cards-grid {
+    display: grid;
+    gap: 1rem;
+    margin-block-end: 2rem;
+}
+
+/* Large screens: 4 cards per row */
+@media (min-width: 1200px) {
+    .cards-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Medium-large screens: 3 cards per row */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Medium screens: 3 cards per row */
+@media (min-width: 768px) and (max-width: 991px) {
+    .cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Small screens: 2 cards per row */
+@media (min-width: 576px) and (max-width: 767px) {
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Extra small screens: 1 card per row */
+@media (max-width: 575px) {
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.pagination-btn {
+    min-width: 40px;
+    height: 40px;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    background: #fff;
+    color: #333;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination-btn:hover:not(:disabled) {
+    background: #f0f0f0;
+    border-color: #999;
+}
+
+.pagination-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.pagination-btn.active {
+    background: #3498db;
+    color: #fff;
+    border-color: #3498db;
+    font-weight: 600;
+}
+
+.pagination-prev span,
+.pagination-next span {
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.pagination-numbers {
+    display: flex;
+    gap: 0.25rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* RTL Support */
+[dir="rtl"] .pagination {
+    direction: ltr;
+    /* Keep pagination direction LTR for consistency */
+}
+
+/* Responsive pagination */
+@media (max-width: 576px) {
+    .container {
+        padding: 1.5rem 0.75rem;
+    }
+
+    .container-title {
+        font-size: 1.5rem;
+    }
+
+    .pagination-btn {
+        min-width: 36px;
+        height: 36px;
+        font-size: 0.9rem;
+    }
+
+    .pagination-prev span,
+    .pagination-next span {
+        font-size: 1.25rem;
+    }
+}

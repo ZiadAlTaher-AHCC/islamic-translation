@@ -32,5 +32,19 @@
         "HADITH_BOOKS": "كتب الأحاديث الشريفة",
         "OUR_MESSAGE": "رسالتنا",
         "STATIC_CONTENT": "محتوى ثابت محتوى ثابت محتوى ثابت محتوى ثابت محتوى ثابت محتوى ثابت محتوى ثابت محتوى ثابت محتوى ثابت محتوى ثابت محتوى ثابت محتوى ثابت محتوى ثابت "
+    },
+    "PAGES": {
+        "NEWS_EVENTS": "الأخبار والفعاليات",
+        "ARTICLES": "المقالات",
+        "LIBRARY": "المكتبة",
+        "LIBRARY_CATEGORY": "المكتبة : {category}"
+    },
+    "LIBRARY": {
+        "CATEGORIES": {
+            "QURAN_BOOKS": "كتب القرآن",
+            "HADITH_BOOKS": "كتب الأحاديث",
+            "ISLAMIC_HISTORY": "التاريخ الإسلامي",
+            "ISLAMIC_JURISPRUDENCE": "الفقه الإسلامي"
+        }
     }
 }
