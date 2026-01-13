@@ -1,0 +1,85 @@
+<div class="paper-details-page" *ngIf="paper() as p">
+    <div class="content-wrapper">
+
+        <!-- Navigation / Back -->
+        <div class="nav-header">
+            <a routerLink="/papers" class="back-link">
+                <i class="arrow-icon"></i>
+                {{ translationService.translations()['TRANSLATIONS']?.['PAPERS']?.['BACK'] }}
+            </a>
+        </div>
+
+        <!-- Main Card -->
+        <div class="details-card">
+
+            <!-- Top Section -->
+            <div class="details-header">
+                <div class="header-content">
+                    <h1 class="paper-title">
+                        <span *ngIf="translationService.currentLang() === 'en'">{{ p.title }}</span>
+                        <span *ngIf="translationService.currentLang() === 'ar'">{{ p.titleArabic }}</span>
+                    </h1>
+
+                    <div class="meta-row main-meta">
+                        <span class="type-badge">
+                            {{ translationService.currentLang() === 'en' ? p.type : p.typeArabic }}
+                        </span>
+                        <span class="date-badge">
+                            <i class="icon-calendar"></i> {{ p.date }}
+                        </span>
+                        <span class="views-badge">
+                            <i class="icon-eye"></i> {{ p.viewCount }} {{
+                            translationService.translations()['TRANSLATIONS']?.['PAPERS']?.['VIEWS'] }}
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Info Grid -->
+            <div class="info-grid">
+
+                <div class="info-item">
+                    <span class="label">{{ translationService.translations()['TRANSLATIONS']?.['PAPERS']?.['RESEARCHER'] }}</span>
+                    <span class="value">{{ translationService.currentLang() === 'en' ? p.researcherName :
+                        p.researcherNameArabic }}</span>
+                </div>
+
+                <div class="info-item">
+                    <span class="label">{{ translationService.translations()['TRANSLATIONS']?.['PAPERS']?.['ADMIN'] }}</span>
+                    <span class="value">{{ translationService.currentLang() === 'en' ? p.adminName : p.adminNameArabic
+                        }}</span>
+                </div>
+
+                <div class="info-item">
+                    <span class="label">{{ translationService.translations()['TRANSLATIONS']?.['PAPERS']?.['LOCATION'] }}</span>
+                    <span class="value">{{ translationService.currentLang() === 'en' ? p.location : p.locationArabic
+                        }}</span>
+                </div>
+
+                <div class="info-item">
+                    <span class="label">{{ translationService.translations()['TRANSLATIONS']?.['PAPERS']?.['PAGES'] }}</span>
+                    <span class="value">{{ p.pagesNo }}</span>
+                </div>
+
+            </div>
+
+            <hr class="divider">
+
+            <!-- Content Sections -->
+            <div class="content-section">
+                <h2>{{ translationService.translations()['TRANSLATIONS']?.['PAPERS']?.['SUMMARY'] }}</h2>
+                <p class="text-content">
+                    {{ translationService.currentLang() === 'en' ? p.summary : p.summaryArabic }}
+                </p>
+            </div>
+
+            <div class="content-section results-section">
+                <h2>{{ translationService.translations()['TRANSLATIONS']?.['PAPERS']?.['RESULTS'] }}</h2>
+                <p class="text-content">
+                    {{ translationService.currentLang() === 'en' ? p.results : p.resultsArabic }}
+                </p>
+            </div>
+
+        </div>
+    </div>
+</div>

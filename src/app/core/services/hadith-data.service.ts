@@ -1,0 +1,90 @@
+import { Injectable } from '@angular/core';
+import { HadithCollection, HadithBook, HadithChapter, Hadith, HadithTranslation, Language } from '../../models/hadith.models';
+
+@Injectable({
+    providedIn: 'root'
+})
+export class HadithDataService {
+
+    // Mock Data
+    private collections: HadithCollection[] = [
+        { id: 1, name: 'Sahih al-Bukhari', nameArabic: 'صحيح البخاري' },
+        { id: 2, name: 'Sahih Muslim', nameArabic: 'صحيح مسلم' }
+    ];
+
+    private books: HadithBook[] = [
+        { id: 1, collectionId: 1, name: 'Revelation', nameArabic: 'كتاب بدء الوحي' },
+        { id: 2, collectionId: 1, name: 'Belief', nameArabic: 'كتاب الإيمان' },
+        { id: 3, collectionId: 2, name: 'Faith', nameArabic: 'كتاب الإيمان' }
+    ];
+
+    private chapters: HadithChapter[] = [
+        { id: 1, bookId: 1, name: 'How the Divine Inspiration started', nameArabic: 'باب كَيْفَ كَانَ بَدْءُ الْوَحْيِ إِلَى رَسُولِ اللَّهِ صلى الله عليه وسلم' },
+        { id: 2, bookId: 2, name: 'The statement of the Prophet: "Islam is based on five principles"', nameArabic: 'باب دُعَاؤُكُمْ إِيمَانُكُمْ' }, // Simplified mapping for demo
+        { id: 3, bookId: 3, name: 'Introduction to Faith', nameArabic: 'باب مَعْرِفَةِ الإِيمَانِ وَالإِسْلاَمِ' }
+    ];
+
+    private hadiths: Hadith[] = [
+        // Bukhari - Revelation - Chapter 1
+        {
+            id: 1,
+            chapterId: 1,
+            textArabic: 'سَمِعْتُ عُمَرَ بْنَ الْخَطَّابِ ـ رضى الله عنه ـ عَلَى الْمِنْبَرِ يَقُولُ سَمِعْتُ رَسُولَ اللَّهِ صلى الله عليه وسلم يَقُولُ " إِنَّمَا الأَعْمَالُ بِالنِّيَّاتِ، وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى، فَمَنْ كَانَتْ هِجْرَتُهُ إِلَى دُنْيَا يُصِيبُهَا أَوْ إِلَى امْرَأَةٍ يَنْكِحُهَا فَهِجْرَتُهُ إِلَى مَا هَاجَرَ إِلَيْهِ ".'
+        },
+        {
+            id: 2,
+            chapterId: 1,
+            textArabic: 'عَنْ عَائِشَةَ أُمِّ الْمُؤْمِنِينَ ـ رضى الله عنها ـ أَنَّ الْحَارِثَ بْنَ هِشَامٍ ـ رضى الله عنه ـ سَأَلَ رَسُولَ اللَّهِ صلى الله عليه وسلم فَقَالَ يَا رَسُولَ اللَّهِ كَيْفَ يَأْتِيكَ الْوَحْيُ فَقَالَ رَسُولُ اللَّهِ صلى الله عليه وسلم " أَحْيَانًا يَأْتِينِي مِثْلَ صَلْصَلَةِ الْجَرَسِ ـ وَهُوَ أَشَدُّهُ عَلَىَّ ـ فَيُفْصَمُ عَنِّي وَقَدْ وَعَيْتُ عَنْهُ مَا قَالَ، وَأَحْيَانًا يَتَمَثَّلُ لِيَ الْمَلَكُ رَجُلاً فَيُكَلِّمُنِي فَأَعِي مَا يَقُولُ "، قَالَتْ عَائِشَةُ رضى الله عنها وَلَقَدْ رَأَيْتُهُ يَنْزِلُ عَلَيْهِ الْوَحْيُ فِي الْيَوْمِ الشَّدِيدِ الْبَرْدِ، فَيُفْصَمُ عَنْهُ وَإِنَّ جَبِينَهُ لَيَتَفَصَّدُ عَرَقًا.'
+        },
+        // Muslim - Faith - Chapter 3
+        {
+            id: 3,
+            chapterId: 3,
+            textArabic: 'حَدَّثَنَا أَبُو خَيْثَمَةَ، زُهَيْرُ بْنُ حَرْبٍ حَدَّثَنَا وَكِيعٌ، عَنْ كَهْمَسٍ، عَنْ عَبْدِ اللَّهِ بْنِ بُرَيْدَةَ، عَنْ يَحْيَى بْنِ يَعْمَرَ، ... قَالَ " فَأَخْبِرْنِي عَنِ الإِيمَانِ ‏.‏ قَالَ ‏"‏ أَنْ تُؤْمِنَ بِاللَّهِ وَمَلاَئِكَتِهِ وَكُتُبِهِ وَرُسُلِهِ وَالْيَوْمِ الآخِرِ وَتُؤْمِنَ بِالْقَدَرِ خَيْرِهِ وَشَرِّهِ ‏"‏ ‏.‏ قَالَ صَدَقْتَ'
+        }
+    ];
+
+    private translations: HadithTranslation[] = [
+        // Hadith 1
+        { id: 1, hadithId: 1, languageId: 1, text: 'I heard Allah\'s Messenger (ﷺ) saying, "The reward of deeds depends upon the intentions and every person will get the reward according to what he has intended. So whoever emigrated for worldly benefits or for a woman to marry, his emigration was for what he emigrated for."' },
+        { id: 2, hadithId: 1, languageId: 2, text: 'J\'ai entendu le Messager d\'Allah (ﷺ) dire: "Les actes ne valent que par les intentions et chacun n\'aura que ce qu\'il a eu l\'intention de faire..."' },
+
+        // Hadith 2
+        { id: 3, hadithId: 2, languageId: 1, text: 'Narrated Aisha: (the mother of the faithful believers) Al-Harith bin Hisham asked Allah\'s Messenger (ﷺ) "O Allah\'s Messenger (ﷺ)! How is the Divine Inspiration revealed to you?" Allah\'s Messenger (ﷺ) replied, "Sometimes it is (revealed) like the ringing of a bell, this form of Inspiration is the hardest of all and then this state passes off after I have grasped what is inspired. Sometimes the Angel comes in the form of a man and talks to me and I grasp whatever he says." Aisha added: Verily I saw the Prophet (ﷺ) being inspired divinely on a very cold day and noticed the sweat dropping from his forehead (as the Inspiration was over).' },
+
+        // Hadith 3
+        { id: 4, hadithId: 3, languageId: 1, text: '... He (the inquirer) said: Tell me about faith. He (the Holy Prophet) replied: That you affirm your faith in Allah, in His angels, in His Books, in His Apostles, in the Day of Judgment, and you affirm your faith in the Divine Decree about good and evil. He (the inquirer) said: You have told the truth.' }
+    ];
+
+    private languages: Language[] = [
+        { id: 1, name: 'English', code: 'en' },
+        { id: 2, name: 'Français', code: 'fr' },
+        { id: 3, name: 'Bahasa Indonesia', code: 'id' }
+    ];
+
+    constructor() { }
+
+    getCollections(): HadithCollection[] {
+        return this.collections;
+    }
+
+    getBooks(collectionId: number): HadithBook[] {
+        return this.books.filter(b => b.collectionId === collectionId);
+    }
+
+    getChapters(bookId: number): HadithChapter[] {
+        return this.chapters.filter(c => c.bookId === bookId);
+    }
+
+    getLanguages(): Language[] {
+        return this.languages;
+    }
+
+    getHadiths(chapterId: number): Hadith[] {
+        return this.hadiths.filter(h => h.chapterId === chapterId);
+    }
+
+    getTranslation(hadithId: number, languageId: number): HadithTranslation | undefined {
+        return this.translations.find(t => t.hadithId === hadithId && t.languageId === languageId);
+    }
+}

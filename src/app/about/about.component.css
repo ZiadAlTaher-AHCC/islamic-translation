@@ -1,0 +1,124 @@
+/* About Page Container */
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+/* Page Header */
+.page-header {
+    text-align: center;
+    margin-block-end: 4rem;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-primary, #2c3e50);
+    margin: 0;
+}
+
+/* Section Styles */
+.section {
+    margin-block-end: 4rem;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--color-primary, #2c3e50);
+    margin-block-end: 1.5rem;
+    padding-block-end: 1rem;
+    border-block-end: 3px solid var(--color-secondary, #3498db);
+}
+
+.section-content {
+    font-size: 1.125rem;
+    line-height: 2;
+    color: #333;
+    text-align: justify;
+}
+
+/* Goals List */
+.goals-list {
+    font-size: 1.125rem;
+    line-height: 2;
+    color: #333;
+    padding-inline-start: 2rem;
+    margin: 0;
+}
+
+.goal-item {
+    margin-block-end: 1.5rem;
+    padding-inline-start: 0.5rem;
+}
+
+.goal-item::marker {
+    color: var(--color-secondary, #3498db);
+    font-weight: 600;
+}
+
+/* RTL Support */
+[dir="rtl"] .section-content {
+    text-align: justify;
+}
+
+[dir="rtl"] .goals-list {
+    padding-inline-start: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-container {
+        padding: 2rem 1rem;
+    }
+
+    .page-title {
+        font-size: 1.875rem;
+    }
+
+    .section {
+        padding: 1.5rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .section-content,
+    .goals-list {
+        font-size: 1rem;
+        line-height: 1.8;
+    }
+
+    .goals-list {
+        padding-inline-start: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-container {
+        padding: 1.5rem 0.75rem;
+    }
+
+    .page-header {
+        margin-block-end: 2rem;
+    }
+
+    .page-title {
+        font-size: 1.5rem;
+    }
+
+    .section {
+        padding: 1rem;
+        margin-block-end: 2rem;
+    }
+
+    .section-title {
+        font-size: 1.25rem;
+    }
+}

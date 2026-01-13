@@ -1,0 +1,22 @@
+<div class="about-container">
+    <!-- Page Title -->
+    <header class="page-header">
+        <h1 class="page-title">{{ translationService.translations()['ABOUT']?.['PAGE_TITLE'] }}</h1>
+    </header>
+
+    <!-- Vision Section -->
+    <section class="section vision-section">
+        <h2 class="section-title">{{ translationService.translations()['ABOUT']?.['VISION']?.['TITLE'] }}</h2>
+        <p class="section-content">{{ translationService.translations()['ABOUT']?.['VISION']?.['CONTENT'] }}</p>
+    </section>
+
+    <!-- Goals Section -->
+    <section class="section goals-section">
+        <h2 class="section-title">{{ translationService.translations()['ABOUT']?.['GOALS']?.['TITLE'] }}</h2>
+        <ol class="goals-list">
+            <li *ngFor="let goal of translationService.translations()['ABOUT']?.['GOALS']?.['ITEMS']" class="goal-item">
+                {{ goal }}
+            </li>
+        </ol>
+    </section>
+</div>

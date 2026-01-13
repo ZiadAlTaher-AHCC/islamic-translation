@@ -3,10 +3,11 @@
         "HOME": "HOME",
         "TERMINOLOGY": "TERMINOLOGY",
         "LIBRARY": "LIBRARY",
-        "THESES": "ACADEMIC THESES",
+        "PAPERS": "ACADEMIC PAPERS",
         "NEWS": "NEWS",
-        "COMMUNITY": "COMMUNITY",
-        "ABOUT": "ABOUT US"
+        "SPECIALISTS_CENTER": "SPECIALISTS CENTER",
+        "ABOUT": "ABOUT US",
+        "TRANSLATIONS": "TRANSLATIONS"
     },
     "FOOTER": {
         "COPYRIGHT": "© 2026 Islamic Translation. All rights reserved.",
@@ -37,7 +38,9 @@
         "NEWS_EVENTS": "News & Events",
         "ARTICLES": "Articles",
         "LIBRARY": "Library",
-        "LIBRARY_CATEGORY": "Library: {category}"
+        "LIBRARY_CATEGORY": "Library: {category}",
+        "PAPERS": "Academic Papers",
+        "PAPERS_CATEGORY": "Academic Papers: {category}"
     },
     "LIBRARY": {
         "CATEGORIES": {
@@ -45,6 +48,131 @@
             "HADITH_BOOKS": "Hadith Books",
             "ISLAMIC_HISTORY": "Islamic History",
             "ISLAMIC_JURISPRUDENCE": "Islamic Jurisprudence"
+        }
+    },
+    "PAPERS": {
+        "CATEGORIES": {
+            "ARABIC": "Academic Papers Arabic",
+            "ENGLISH": "Academic Papers English"
+        }
+    },
+    "ABOUT": {
+        "PAGE_TITLE": "About Us",
+        "VISION": {
+            "TITLE": "Our Vision",
+            "CONTENT": "To elevate the standard of translating Islamic religious texts and create an environment that contributes to raising the level of translators and researchers in this field, to convey the intent of Allah and His Messenger (peace be upon him) to languages other than Arabic, free from error, distortion, or alteration, and in a sound, contemporary scientific manner."
+        },
+        "GOALS": {
+            "TITLE": "Our Goals",
+            "ITEMS": [
+                "Achieve high levels of coordination among translators of Islamic religious texts from around the world, whether individuals or specialized organizations.",
+                "Seek to reconcile different opinions and specialized perspectives related to defining concepts of Islamic religious terms and their translations into non-Arabic languages.",
+                "Gather relevant principles and methodologies and achieve the greatest possible consensus on the standards and guidelines of this specialization, making them available to translators.",
+                "Facilitate translators' work by providing available information tools that assist them in this specialization.",
+                "Expand the reach of Islamic religious translations and facilitate access to them for the general public and specialists.",
+                "Seek to achieve cooperation among those working in this field.",
+                "Contribute to avoiding unjustified repetition of certain translated works in this area.",
+                "Increase the return on efforts made in translating Islamic religious texts and improve their efficiency.",
+                "Seek to enable website users to benefit from its outputs rather than merely indexing and documenting them."
+            ]
+        }
+    },
+    "TRANSLATIONS": {
+        "CATEGORIES": {
+            "QURAN": "Quran Translation",
+            "HADITH": "Hadith Translation"
+        },
+        "QURAN_TRANSLATION": {
+            "TITLE": "Quran Translation",
+            "SURAHS": "Surahs",
+            "AYAHS": "Ayahs",
+            "LANGUAGES": "Languages",
+            "NO_SURAHS": "No Surahs available",
+            "SELECT_SURAH": "Select a Surah to view Ayahs",
+            "NO_LANGUAGES": "No languages available",
+            "TRANSLATIONS": "Translations",
+            "NO_TRANSLATIONS": "No translations available for this Ayah",
+            "SELECT_BOTH": "Select a Surah and Ayah to view translations",
+            "LOADING": "Loading Quran translations..."
+        },
+        "HADITH_TRANSLATION": {
+            "TITLE": "Hadith Translation",
+            "COLLECTION": "Collection",
+            "BOOK": "Book",
+            "CHAPTER": "Chapter",
+            "LANGUAGE": "Language",
+            "NO_TRANSLATION": "No translation available in this language",
+            "SELECT_ALL": "Please select all options to view Hadiths",
+            "LOADING": "Loading Hadith translations..."
+        },
+        "TERMINOLOGY": {
+            "TITLE": "Terminology",
+            "FILTER_BY_CATEGORY": "Filter by Category",
+            "FILTER_BY_LETTER": "Filter by Letter",
+            "MORE": "More",
+            "NO_RESULTS": "No terms found for this selection.",
+            "DETAILS_TITLE": "Term Details",
+            "MEANING_LINGUISTIC": "Linguistic Meaning",
+            "MEANING_TERMINOLOGICAL": "Terminological Meaning",
+            "TRANSLATION": "Translation",
+            "SYNONYMS": "Synonyms",
+            "PRONUNCIATION": "Pronunciation",
+            "VIEWS": "Views",
+            "BACK": "Back to List",
+            "CATEGORY": "Category",
+            "LETTER": "Letter",
+            "SELECT_TRANSLATION_LANG": "Translation Language",
+            "SELECT_SYNONYM_LANG": "Synonyms Language"
+        },
+        "PAPERS": {
+            "TITLE": "Research Papers",
+            "TYPE": "Type",
+            "RESEARCHER": "Researcher",
+            "ADMIN": "Supervisor",
+            "DATE": "Date",
+            "LOCATION": "Location",
+            "PAGES": "Pages",
+            "SUMMARY": "Summary",
+            "RESULTS": "Results",
+            "VIEWS": "Views",
+            "BACK": "Back to Papers",
+            "CATEGORIES": {
+                "ARABIC": "Arabic Scientific Papers",
+                "ENGLISH": "English Scientific Papers"
+            }
+        },
+        "LIBRARY": {
+            "TITLE": "Library",
+            "AUTHOR": "Author",
+            "TRANSLATOR": "Translator",
+            "PUBLISHER": "Publisher",
+            "SOURCE_LANG": "Source Language",
+            "TARGET_LANG": "Target Language",
+            "OUTSOURCE": "Outsource",
+            "CATEGORY": "Category",
+            "DOWNLOAD": "Read Now",
+            "VIEWS": "Views",
+            "DOWNLOADS": "Reads",
+            "BACK": "Back to Library",
+            "CATEGORIES": {
+                "QURAN_BOOKS": "Quran Books",
+                "HADITH_BOOKS": "Hadith Books",
+                "ISLAMIC_HISTORY": "Islamic History",
+                "ISLAMIC_JURISPRUDENCE": "Islamic Jurisprudence"
+            }
+        },
+        "SPECIALISTS_CENTER": {
+            "TITLE_LIST": "Specialists Centers",
+            "TITLE_DETAILS": "Specialists Center",
+            "BACK": "Back to Centers",
+            "MANAGER": "Manager",
+            "PHONE": "Phone",
+            "EMAIL": "Email",
+            "WEBSITE": "Website",
+            "NOT_AVAILABLE": "Not Available",
+            "MASARAT_TITLE": "Center Activities & Work Paths",
+            "INTAG_TITLE": "Center Outputs",
+            "VIEWS": "Views"
         }
     }
 }

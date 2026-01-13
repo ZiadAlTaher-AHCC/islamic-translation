@@ -44,14 +44,37 @@
                             </a></li>
                     </ul>
                 </li>
-                <li><a routerLink="/theses" routerLinkActive="active" (click)="closeMenu()">
-                        {{ translationService.translations()['NAV']?.['THESES'] }}
-                    </a></li>
+                <li class="has-submenu">
+                    <a routerLink="/papers" routerLinkActive="active" (click)="closeMenu()">
+                        {{ translationService.translations()['NAV']?.['PAPERS'] }}
+                    </a>
+                    <ul class="submenu">
+                        <li><a routerLink="/papers" [queryParams]="{categoryId: 1}" (click)="closeMenu()">
+                                {{ translationService.translations()['PAPERS']?.['CATEGORIES']?.['ARABIC'] }}
+                            </a></li>
+                        <li><a routerLink="/papers" [queryParams]="{categoryId: 2}" (click)="closeMenu()">
+                                {{ translationService.translations()['PAPERS']?.['CATEGORIES']?.['ENGLISH'] }}
+                            </a></li>
+                    </ul>
+                </li>
+                <li class="has-submenu">
+                    <a routerLinkActive="active" (click)="closeMenu()">
+                        {{ translationService.translations()['NAV']?.['TRANSLATIONS'] }}
+                    </a>
+                    <ul class="submenu">
+                        <li><a routerLink="/quran-translation" (click)="closeMenu()">
+                                {{ translationService.translations()['TRANSLATIONS']?.['CATEGORIES']?.['QURAN'] }}
+                            </a></li>
+                        <li><a routerLink="/hadith-translation" (click)="closeMenu()">
+                                {{ translationService.translations()['TRANSLATIONS']?.['CATEGORIES']?.['HADITH'] }}
+                            </a></li>
+                    </ul>
+                </li>
                 <li><a routerLink="/news-events" routerLinkActive="active" (click)="closeMenu()">
                         {{ translationService.translations()['NAV']?.['NEWS'] }}
                     </a></li>
-                <li><a routerLink="/articles" routerLinkActive="active" (click)="closeMenu()">
-                        {{ translationService.translations()['NAV']?.['COMMUNITY'] }}
+                <li><a routerLink="/specialists-centers" routerLinkActive="active" (click)="closeMenu()">
+                        {{ translationService.translations()['NAV']?.['SPECIALISTS_CENTER'] }}
                     </a></li>
                 <li><a routerLink="/about" routerLinkActive="active" (click)="closeMenu()">
                         {{ translationService.translations()['NAV']?.['ABOUT'] }}

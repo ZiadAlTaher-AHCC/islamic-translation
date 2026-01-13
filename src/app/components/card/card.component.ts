@@ -11,7 +11,7 @@ import { CardItem } from '../../models/card-item.model';
     styleUrl: './card.component.css'
 })
 export class CardComponent {
-    @Input({ required: true }) card!: CardItem;
+    @Input({ required: true }) card!: CardItem ;
 
     /**
      * Get truncated description based on whether image exists

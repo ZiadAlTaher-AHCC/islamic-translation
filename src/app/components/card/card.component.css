@@ -64,6 +64,20 @@
     line-height: 1.5;
 }
 
+.card-stats {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    color: #888;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
 /* RTL Support */
 [dir="rtl"] .card {
     flex-direction: row-reverse;

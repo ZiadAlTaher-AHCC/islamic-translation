@@ -1,0 +1,76 @@
+<div class="terminology-list-page">
+    <div class="content-wrapper">
+
+        <!-- Header -->
+        <h1 class="page-title">{{ translationService.translations()['TRANSLATIONS']?.['TERMINOLOGY']?.['TITLE'] }}</h1>
+
+        <!-- Mode Toggle -->
+        <div class="mode-toggle-container">
+            <button class="toggle-btn" [class.active]="filterMode() === 'letter'" (click)="setMode('letter')">
+                {{ translationService.translations()['TRANSLATIONS']?.['TERMINOLOGY']?.['FILTER_BY_LETTER'] }}
+            </button>
+            <button class="toggle-btn" [class.active]="filterMode() === 'category'" (click)="setMode('category')">
+                {{ translationService.translations()['TRANSLATIONS']?.['TERMINOLOGY']?.['FILTER_BY_CATEGORY'] }}
+            </button>
+        </div>
+
+        <!-- Filter Cards Section -->
+        <div class="filter-cards-section">
+
+            <!-- Letters Grid -->
+            <div class="filter-grid" *ngIf="filterMode() === 'letter'">
+                <div *ngFor="let letter of letters(); trackBy: trackById" class="filter-card"
+                    [class.selected]="selectedId() === letter.id" (click)="selectFilter(letter.id)">
+                    <span *ngIf="translationService.currentLang() === 'en'">{{ letter.char }}</span>
+                    <span *ngIf="translationService.currentLang() === 'ar'">{{ letter.charArabic }}</span>
+                </div>
+            </div>
+
+            <!-- Categories Grid -->
+            <div class="filter-grid" *ngIf="filterMode() === 'category'">
+                <div *ngFor="let category of categories(); trackBy: trackById" class="filter-card category-card"
+                    [class.selected]="selectedId() === category.id" (click)="selectFilter(category.id)">
+                    <span *ngIf="translationService.currentLang() === 'en'">{{ category.name }}</span>
+                    <span *ngIf="translationService.currentLang() === 'ar'">{{ category.nameArabic }}</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Results Section -->
+        <div class="results-section">
+            <div class="terms-grid">
+                <div *ngFor="let term of terms(); trackBy: trackById" class="term-card">
+                    <div class="term-header">
+                        <h3 class="term-title" *ngIf="translationService.currentLang() === 'en'">{{ term.title }}</h3>
+                        <h3 class="term-title" *ngIf="translationService.currentLang() === 'ar'">{{ term.titleArabic }}
+                        </h3>
+
+                        <div class="term-badges">
+                            <span class="badge category-badge">
+                                {{ translationService.currentLang() === 'en' ? term.categoryName :
+                                term.categoryNameArabic }}
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="term-preview">
+                        <p class="meaning-preview">{{ term.meaningTerm }}</p>
+                    </div>
+
+                    <div class="term-actions">
+                        <a [routerLink]="['/terminology', term.id]" class="more-btn">
+                            {{ translationService.translations()['TRANSLATIONS']?.['TERMINOLOGY']?.['MORE'] }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Empty State -->
+            <div *ngIf="terms().length === 0" class="empty-state">
+                <p>{{ translationService.translations()['TRANSLATIONS']?.['TERMINOLOGY']?.['NO_RESULTS'] }}</p>
+            </div>
+        </div>
+
+    </div>
+</div>

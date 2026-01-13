@@ -1,0 +1,134 @@
+<div class="book-details-page" *ngIf="book() as b">
+    <div class="content-wrapper">
+
+        <!-- Navigation / Back -->
+        <div class="nav-header">
+            <a routerLink="/library" class="back-link">
+                <i class="arrow-icon"></i>
+                {{ translationService.translations()['TRANSLATIONS']?.['LIBRARY']?.['BACK'] }}
+            </a>
+        </div>
+
+        <!-- Main Card -->
+        <div class="details-card">
+
+            <!-- Top Section -->
+            <div class="details-header">
+                <div class="header-content">
+                    <h1 class="book-title">
+                        <span *ngIf="translationService.currentLang() === 'en'">{{ b.title }}</span>
+                        <span *ngIf="translationService.currentLang() === 'ar'">{{ b.titleArabic }}</span>
+                    </h1>
+
+                    <div class="meta-row main-meta">
+                        <span class="category-badge">
+                            {{ translationService.translations()['TRANSLATIONS']?.[getCategoryIdentifier(b.categoryId)]
+                            ||
+                            translationService.translations()['TRANSLATIONS']?.['TRANSLATIONS']?.['LIBRARY']?.['CATEGORIES']?.[getCategoryIdentifier(b.categoryId).split('.').pop()!]
+                            }}
+                            <!-- Fallback to accessing directly via split key if 'TRANSLATIONS' structure varies, 
+                      but based on JSON: TRANSALTIONS -> LIBRARY -> CATEGORIES -> KEY works if I construct key right.
+                      Actually better: translationService.translations()['TRANSLATIONS']?.['TRANSLATIONS']?.['LIBRARY']?.['CATEGORIES']?.[mapKey]
+                  -->
+                            {{
+                            translationService.translations()['TRANSLATIONS']?.['LIBRARY']?.['CATEGORIES']?.[getCategoryIdentifier(b.categoryId).split('.').pop()!]
+                            }}
+                        </span>
+                        <span class="views-badge">
+                            <i class="icon-eye"></i> {{ b.viewCount }} {{
+                            translationService.translations()['TRANSLATIONS']?.['LIBRARY']?.['VIEWS'] }}
+                        </span>
+                        <span class="downloads-badge">
+                            <i class="icon-download"></i> {{ b.downloadCount }} {{
+                            translationService.translations()['TRANSLATIONS']?.['LIBRARY']?.['DOWNLOADS'] }}
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-content-grid">
+
+                <!-- Left: Image -->
+                <div class="book-image-container">
+                    <img *ngIf="b.imageUrl" [src]="b.imageUrl" [alt]="b.title" class="book-cover">
+                    <div *ngIf="!b.imageUrl" class="book-placeholder">
+                        <span>{{ translationService.currentLang() === 'en' ? b.title : b.titleArabic }}</span>
+                    </div>
+                </div>
+
+                <!-- Right: Info & Description -->
+                <div class="book-info-container">
+
+                    <!-- Author / Trans Info -->
+                    <div class="authors-section">
+                        <div class="info-row">
+                            <span class="label">{{
+                                translationService.translations()['TRANSLATIONS']?.['LIBRARY']?.['AUTHOR'] }}:</span>
+                            <span class="value main-author">{{ translationService.currentLang() === 'en' ? b.author :
+                                b.authorArabic }}</span>
+                        </div>
+                        <div class="info-row" *ngIf="b.translator">
+                            <span class="label">{{
+                                translationService.translations()['TRANSLATIONS']?.['LIBRARY']?.['TRANSLATOR']
+                                }}:</span>
+                            <span class="value">{{ translationService.currentLang() === 'en' ? b.translator :
+                                b.translatorArabic }}</span>
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="description-section">
+                        <p class="description-text">
+                            {{ translationService.currentLang() === 'en' ? b.description : b.descriptionArabic }}
+                        </p>
+                    </div>
+
+                    <!-- Detailed Info Grid -->
+                    <div class="details-grid">
+                        <div class="detail-item">
+                            <span class="label">{{
+                                translationService.translations()['TRANSLATIONS']?.['LIBRARY']?.['PUBLISHER'] }}</span>
+                            <span class="value">{{ translationService.currentLang() === 'en' ? b.publisher :
+                                b.publisherArabic }}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">{{
+                                translationService.translations()['TRANSLATIONS']?.['LIBRARY']?.['SOURCE_LANG']
+                                }}</span>
+                            <span class="value">{{ translationService.currentLang() === 'en' ? b.sourceLang :
+                                b.sourceLangArabic }}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">{{
+                                translationService.translations()['TRANSLATIONS']?.['LIBRARY']?.['TARGET_LANG']
+                                }}</span>
+                            <span class="value">{{ translationService.currentLang() === 'en' ? b.targetLang :
+                                b.targetLangArabic }}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">{{
+                                translationService.translations()['TRANSLATIONS']?.['LIBRARY']?.['OUTSOURCE'] }}</span>
+                            <span class="value check-mark">{{ b.outSource ? '✓' : '✕' }}</span>
+                        </div>
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="actions-section">
+                        <button class="download-btn" (click)="onDownload()">
+                            {{ translationService.translations()['TRANSLATIONS']?.['LIBRARY']?.['DOWNLOAD'] }}
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="book-details-page" *ngIf="!book()">
+    <div class="book-details-container">
+        <div class="book-details-header">
+            <h1>Not Found</h1>
+        </div>
+    </div>
+</div>

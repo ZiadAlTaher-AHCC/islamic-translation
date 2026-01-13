@@ -1,0 +1,103 @@
+<div class="center-details-page" *ngIf="center() as c">
+    <div class="content-wrapper">
+
+        <!-- Navigation / Back -->
+        <div class="nav-header">
+            <a routerLink="/specialists-centers" class="back-link">
+                <i class="arrow-icon"></i>
+                {{ translationService.translations()['TRANSLATIONS']?.['SPECIALISTS_CENTER']?.['BACK'] }}
+            </a>
+        </div>
+
+        <!-- Main Card -->
+        <div class="details-card">
+
+            <!-- Top Section -->
+            <div class="details-header">
+                <div class="header-content">
+                    <h1 class="center-name">
+                        <span *ngIf="translationService.currentLang() === 'en'">{{ c.name }}</span>
+                        <span *ngIf="translationService.currentLang() === 'ar'">{{ c.nameArabic }}</span>
+                    </h1>
+
+                    <div class="meta-row main-meta">
+                        <span class="country-badge">
+                            <i class="icon-location"></i>
+                            {{ translationService.currentLang() === 'en' ? c.countryName : c.countryNameArabic }}
+                        </span>
+                        <span class="location-text">
+                            {{ translationService.currentLang() === 'en' ? c.location : c.locationArabic }}
+                        </span>
+                        <span class="views-badge">
+                            <i class="icon-eye"></i> {{ c.viewCount }} {{
+                            translationService.translations()['TRANSLATIONS']?.['SPECIALISTS_CENTER']?.['VIEWS'] }}
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+
+            <hr class="divider">
+
+            <!-- Info Grid (Manager, Contact) -->
+            <div class="info-grid">
+
+                <div class="info-item">
+                    <span class="label">{{
+                        translationService.translations()['TRANSLATIONS']?.['SPECIALISTS_CENTER']?.['MANAGER'] }}</span>
+                    <span class="value active-text">{{ translationService.currentLang() === 'en' ? c.managerName :
+                        c.managerNameArabic }}</span>
+                </div>
+
+                <div class="info-item">
+                    <span class="label">{{
+                        translationService.translations()['TRANSLATIONS']?.['SPECIALISTS_CENTER']?.['PHONE'] }}</span>
+                    <span class="value" [class.muted]="!c.phone">
+                        {{ c.phone ? c.phone :
+                        translationService.translations()['TRANSLATIONS']?.['SPECIALISTS_CENTER']?.['NOT_AVAILABLE'] }}
+                    </span>
+                </div>
+
+                <div class="info-item">
+                    <span class="label">{{
+                        translationService.translations()['TRANSLATIONS']?.['SPECIALISTS_CENTER']?.['EMAIL'] }}</span>
+                    <a [href]="'mailto:' + c.email" class="value link-text">{{ c.email }}</a>
+                </div>
+
+                <div class="info-item" *ngIf="c.websiteUrl">
+                    <span class="label">{{
+                        translationService.translations()['TRANSLATIONS']?.['SPECIALISTS_CENTER']?.['WEBSITE'] }}</span>
+                    <a [href]="c.websiteUrl" target="_blank" class="value link-text external-link">
+                        {{ c.websiteUrl }} <i class="icon-external"></i>
+                    </a>
+                </div>
+
+            </div>
+
+            <hr class="divider">
+
+            <!-- Masarat Section -->
+            <div class="content-section">
+                <h2>{{ translationService.translations()['TRANSLATIONS']?.['SPECIALISTS_CENTER']?.['MASARAT_TITLE'] }}
+                </h2>
+                <ul class="styled-list">
+                    <li *ngFor="let item of (translationService.currentLang() === 'en' ? c.masarat : c.masaratArabic)">
+                        {{ item }}
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Intag Section -->
+            <div class="content-section intag-section">
+                <h2>{{ translationService.translations()['TRANSLATIONS']?.['SPECIALISTS_CENTER']?.['INTAG_TITLE'] }}
+                </h2>
+                <ul class="styled-list check-list">
+                    <li *ngFor="let item of (translationService.currentLang() === 'en' ? c.intag : c.intagArabic)">
+                        {{ item }}
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>

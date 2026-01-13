@@ -19,4 +19,10 @@ export interface CardItem {
 
     /** Optional category name for display */
     categoryName?: string;
+
+    /** Optional View Count for display */
+    viewCount?: number;
+
+    /** Optional Download Count for display */
+    downloadCount?: number;
 }

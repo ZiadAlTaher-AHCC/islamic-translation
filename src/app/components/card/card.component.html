@@ -20,5 +20,14 @@
         <p class="card-description">
             {{ getTruncatedDescription() }}
         </p>
+        <!-- Add this inside card-content, after the description -->
+        <div class="card-stats">
+            <div *ngIf="card.viewCount" class="stat-item">
+                <i class="fa-regular fa-eye"></i>{{ card.viewCount }}
+            </div>
+            <div *ngIf="card.downloadCount" class="stat-item">
+                <i class="fa-solid fa-download"></i>{{ card.downloadCount }}
+            </div>
+        </div>
     </div>
 </div>

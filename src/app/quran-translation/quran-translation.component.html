@@ -1,0 +1,132 @@
+<div class="quran-translation-page">
+    <!-- Loading State -->
+    <div *ngIf="isLoading" class="loading-placeholder">
+        <div class="spinner"></div>
+        <p>{{ translationService.translations()['TRANSLATIONS']?.['QURAN_TRANSLATION']?.['LOADING'] }}</p>
+    </div>
+
+    <!-- Main Content -->
+    <div *ngIf="!isLoading" class="content-wrapper">
+
+        <h1 class="page-title" style="text-align: center; color: var(--color-primary); margin-bottom: 1rem;">
+            {{ translationService.translations()['TRANSLATIONS']?.['QURAN_TRANSLATION']?.['TITLE'] }}
+        </h1>
+
+        <!-- Three-Column Selector Layout -->
+        <div class="selectors-container">
+
+            <!-- Surah List -->
+            <div class="selector-panel">
+                <h2 class="panel-title">{{ translationService.translations()['TRANSLATIONS']?.['QURAN_TRANSLATION']?.['SURAHS'] }}</h2>
+                <div class="list-container">
+                    <div *ngFor="let surah of surahs; trackBy: trackBySurahId" class="list-item"
+                        [class.selected]="selectedSurah?.suraId === surah.suraId" (click)="selectSurah(surah)"
+                        (keydown)="onSurahKeydown($event, surah)" tabindex="0" role="button"
+                        [attr.aria-pressed]="selectedSurah?.suraId === surah.suraId">
+                        <div class="item-number">{{ surah.suraId }}</div>
+                        <div class="item-content">
+                            <div class="item-name" *ngIf="translationService.currentLang() === 'en'">{{ surah.suraName
+                                }}</div>
+                            <div class="item-name-arabic" [class.primary]="translationService.currentLang() === 'ar'">{{
+                                surah.suraNameArabic }}</div>
+                        </div>
+                    </div>
+
+                    <!-- Empty State -->
+                    <div *ngIf="surahs.length === 0" class="empty-state">
+                        <p>{{ translationService.translations()['TRANSLATIONS']?.['QURAN_TRANSLATION']?.['NO_SURAHS'] }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ayah List -->
+            <div class="selector-panel">
+                <h2 class="panel-title">{{ translationService.translations()['TRANSLATIONS']?.['QURAN_TRANSLATION']?.['AYAHS'] }}</h2>
+                <div class="list-container">
+                    <div *ngFor="let ayah of ayahs; trackBy: trackByAyahId" class="list-item"
+                        [class.selected]="selectedAyah?.ayaId === ayah.ayaId" (click)="selectAyah(ayah)"
+                        (keydown)="onAyahKeydown($event, ayah)" tabindex="0" role="button"
+                        [attr.aria-pressed]="selectedAyah?.ayaId === ayah.ayaId">
+                        <div class="item-number">{{ ayah.ayaNumber }}</div>
+                        <div class="item-content">
+                            <div class="item-text-arabic">{{ ayah.ayaTextArabic }}</div>
+                        </div>
+                    </div>
+
+                    <!-- Empty State -->
+                    <div *ngIf="ayahs.length === 0" class="empty-state">
+                        <p>{{ translationService.translations()['TRANSLATIONS']?.['QURAN_TRANSLATION']?.['SELECT_SURAH'] }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Language List -->
+            <div class="selector-panel">
+                <h2 class="panel-title">{{ translationService.translations()['TRANSLATIONS']?.['QURAN_TRANSLATION']?.['LANGUAGES'] }}</h2>
+                <div class="list-container">
+                    <div *ngFor="let language of languages; trackBy: trackByLanguageId" class="list-item"
+                        [class.selected]="selectedLanguage?.languageId === language.languageId"
+                        (click)="selectLanguage(language)" (keydown)="onLanguageKeydown($event, language)" tabindex="0"
+                        role="button" [attr.aria-pressed]="selectedLanguage?.languageId === language.languageId">
+                        <div class="item-content language-item">
+                            <div class="item-name">{{ language.languageName }}</div>
+                            <div class="item-name-native">{{ language.languageNativeName }}</div>
+                        </div>
+                    </div>
+
+                    <!-- Empty State -->
+                    <div *ngIf="languages.length === 0" class="empty-state">
+                        <p>{{ translationService.translations()['TRANSLATIONS']?.['QURAN_TRANSLATION']?.['NO_LANGUAGES'] }}</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Display Section -->
+        <div class="display-section" *ngIf="selectedAyah">
+
+            <!-- Arabic Ayah Text -->
+            <div class="ayah-arabic-display">
+                <div class="ayah-header">
+                    <span class="surah-info" *ngIf="translationService.currentLang() === 'en'">{{
+                        selectedSurah?.suraName }}</span>
+                    <span class="surah-info" *ngIf="translationService.currentLang() === 'ar'">{{
+                        selectedSurah?.suraNameArabic }}</span>
+                    <span class="ayah-info"> - {{ translationService.translations()['TRANSLATIONS']?.['QURAN_TRANSLATION']?.['AYAHS'] }}
+                        {{ selectedAyah?.ayaNumber }}</span>
+                </div>
+                <div class="ayah-text">{{ selectedAyah?.ayaTextArabic }}</div>
+            </div>
+
+            <!-- Translations List -->
+            <div class="translations-section">
+                <h3 class="translations-title">
+                    {{ translationService.translations()['TRANSLATIONS']?.['QURAN_TRANSLATION']?.['TRANSLATIONS'] }}
+                    <span *ngIf="selectedLanguage">({{ selectedLanguage.languageName }})</span>
+                </h3>
+
+                <div class="translations-list">
+                    <div *ngFor="let translation of translations; trackBy: trackByTranslationId"
+                        class="translation-item">
+                        <div class="translator-name">{{ translation.translatorName }}</div>
+                        <div class="translation-text" [dir]="selectedLanguage?.languageCode === 'ar' ? 'rtl' : 'ltr'">{{
+                            translation.translationText }}</div>
+                    </div>
+
+                    <!-- Empty State for Translations -->
+                    <div *ngIf="translations.length === 0" class="empty-state">
+                        <p>{{ translationService.translations()['TRANSLATIONS']?.['QURAN_TRANSLATION']?.['NO_TRANSLATIONS'] }}</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Empty State when no Ayah is selected -->
+        <div class="display-section empty-display" *ngIf="!selectedAyah">
+            <p>{{ translationService.translations()['TRANSLATIONS']?.['QURAN_TRANSLATION']?.['SELECT_BOTH'] }}</p>
+        </div>
+
+    </div>
+</div>

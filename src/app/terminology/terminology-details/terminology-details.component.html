@@ -1,0 +1,115 @@
+<div class="terminology-details-page" *ngIf="term() as t">
+    <div class="content-wrapper">
+
+        <!-- Navigation / Back -->
+        <div class="nav-header">
+            <a routerLink="/terminology" class="back-link">
+                <i class="arrow-icon"></i>
+                {{ translationService.translations()['TRANSLATIONS']?.['TERMINOLOGY']?.['BACK'] }}
+            </a>
+        </div>
+
+        <!-- Main Card -->
+        <div class="details-card">
+
+            <!-- Top Section: Title & Meta -->
+            <div class="details-header">
+                <h1 class="term-title">
+                    <span *ngIf="translationService.currentLang() === 'en'">{{ t.title }}</span>
+                    <span *ngIf="translationService.currentLang() === 'ar'">{{ t.titleArabic }}</span>
+                </h1>
+
+                <div class="meta-info">
+                    <!-- Views -->
+                    <div class="meta-item">
+                        <span class="label">{{ translationService.translations()['TRANSLATIONS']?.['TERMINOLOGY']?.['VIEWS'] }}:</span>
+                        <span class="value">{{ t.viewCount }}</span>
+                    </div>
+
+                    <!-- Category -->
+                    <div class="meta-item clickable" [routerLink]="['/terminology']"
+                        [queryParams]="{categoryId: t.categoryId}">
+                        <span class="label">{{ translationService.translations()['TRANSLATIONS']?.['TERMINOLOGY']?.['CATEGORY'] }}:</span>
+                        <span class="value badge">{{ translationService.currentLang() === 'en' ? t.categoryName :
+                            t.categoryNameArabic }}</span>
+                    </div>
+
+                    <!-- Letter -->
+                    <div class="meta-item clickable" [routerLink]="['/terminology']"
+                        [queryParams]="{letterId: t.letterId}">
+                        <span class="label">{{ translationService.translations()['TRANSLATIONS']?.['TERMINOLOGY']?.['LETTER'] }}:</span>
+                        <span class="value badge">{{ translationService.currentLang() === 'en' ? t.letterName :
+                            t.letterNameArabic }}</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Linguistic Meaning -->
+            <div class="content-section">
+                <h2>{{ translationService.translations()['TRANSLATIONS']?.['TERMINOLOGY']?.['MEANING_LINGUISTIC'] }}</h2>
+                <p class="meaning-text">{{ t.meaningLanguage }}</p>
+            </div>
+
+            <!-- Terminological Meaning -->
+            <div class="content-section">
+                <h2>{{ translationService.translations()['TRANSLATIONS']?.['TERMINOLOGY']?.['MEANING_TERMINOLOGICAL'] }}</h2>
+                <p class="meaning-text">{{ t.meaningTerm }}</p>
+            </div>
+
+            <!-- Pronunciation -->
+            <div class="content-section">
+                <h2>{{ translationService.translations()['TRANSLATIONS']?.['TERMINOLOGY']?.['PRONUNCIATION'] }}</h2>
+                <p class="voice-spell">{{ t.voiceSpell }}</p>
+            </div>
+
+            <hr class="divider">
+
+            <!-- Translations Section -->
+            <div class="content-section highlight-section">
+                <div class="control-group">
+                    <label class="section-label">{{
+                        translationService.translations()['TRANSLATIONS']?.['TERMINOLOGY']?.['SELECT_TRANSLATION_LANG'] }}</label>
+                    <div class="custom-select-wrapper">
+                        <select (change)="setTranslationLang($event)" class="custom-select">
+                            <option value="english">English</option>
+                            <option value="french">Français</option>
+                            <option value="spanish">Español</option>
+                        </select>
+                        <span class="custom-arrow">▼</span>
+                    </div>
+                </div>
+
+                <div class="result-box">
+                    <label class="result-label">{{ translationService.translations()['TRANSLATIONS']?.['TERMINOLOGY']?.['TRANSLATION']
+                        }}</label>
+                    <p class="translation-text">{{ currentTranslation }}</p>
+                </div>
+            </div>
+
+            <!-- Synonyms Section -->
+            <div class="content-section highlight-section">
+                <div class="control-group">
+                    <label class="section-label">{{
+                        translationService.translations()['TRANSLATIONS']?.['TERMINOLOGY']?.['SELECT_SYNONYM_LANG'] }}</label>
+                    <div class="custom-select-wrapper">
+                        <select (change)="setSynonymLang($event)" class="custom-select">
+                            <option value="english">English</option>
+                            <option value="french">Français</option>
+                            <option value="spanish">Español</option>
+                        </select>
+                        <span class="custom-arrow">▼</span>
+                    </div>
+                </div>
+
+                <div class="result-box">
+                    <label class="result-label">{{ translationService.translations()['TRANSLATIONS']?.['TERMINOLOGY']?.['SYNONYMS']
+                        }}</label>
+                    <div class="synonyms-list">
+                        <span *ngFor="let syn of currentSynonyms" class="synonym-tag">{{ syn }}</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
