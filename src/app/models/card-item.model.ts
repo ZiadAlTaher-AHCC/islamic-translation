@@ -2,8 +2,14 @@
  * Card item model for reusable card grid system
  */
 export interface CardItem {
+    /** Card ID */
+    id?: number;
+
     /** Card title */
-    title: string;
+    titleAr: string;
+
+    /** Card title */
+    titleEn?: string;
 
     /** Card description */
     description: string;
@@ -13,9 +19,6 @@ export interface CardItem {
 
     /** Optional navigation URL - clicking on the title will navigate to this URL */
     navigationUrl?: string;
-
-    /** Optional category ID for filtering (library items) - must be a number */
-    categoryId?: number;
 
     /** Optional category name for display */
     categoryName?: string;

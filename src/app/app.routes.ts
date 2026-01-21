@@ -11,6 +11,7 @@ import { HadithTranslationComponent } from './hadith-translation/hadith-translat
 export const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'news-events', component: NewsEventsComponent },
+    { path: 'search', loadComponent: () => import('./search/search.component').then(m => m.SearchComponent) },
     { path: 'library', component: LibraryComponent },
     { path: 'library/books/:id', loadComponent: () => import('./library/book-details/book-details.component').then(m => m.BookDetailsComponent) },
     { path: 'specialists-centers', loadComponent: () => import('./specialists-centers/specialists-centers-list/specialists-centers-list.component').then(m => m.SpecialistsCentersListComponent) },
@@ -18,6 +19,7 @@ export const routes: Routes = [
     { path: 'papers', component: PapersComponent },
     { path: 'papers/:id', loadComponent: () => import('./papers/paper-details/paper-details.component').then(m => m.PaperDetailsComponent) },
     { path: 'quran-translation', component: QuranTranslationComponent },
+    { path: 'aya-details', loadComponent: () => import('./aya-details/aya-details.component').then(m => m.AyaDetailsComponent) },
     { path: 'hadith-translation', component: HadithTranslationComponent },
     { path: 'terminology', loadComponent: () => import('./terminology/terminology-list/terminology-list.component').then(m => m.TerminologyListComponent) },
     { path: 'terminology/:id', loadComponent: () => import('./terminology/terminology-details/terminology-details.component').then(m => m.TerminologyDetailsComponent) },

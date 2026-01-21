@@ -1,0 +1,348 @@
+:host {
+    --card-bg: #ffffff;
+    --primary: var(--color-primary, #044f43);
+    --secondary: var(--color-secondary, #c7a006);
+    --text-color: var(--color-text, #333333);
+    --light-bg: #f8f9fa;
+    --border-color: #e2e8f0;
+    --active-border: var(--primary);
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2.5rem;
+}
+
+.aya-details-page {
+    padding: var(--spacing-md);
+    max-width: 1000px;
+    margin: 0 auto;
+    min-height: 80vh;
+    font-family: inherit;
+}
+
+/* Loading State */
+.loading-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    gap: var(--spacing-md);
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid var(--light-bg);
+    border-top: 4px solid var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-state p {
+    color: var(--secondary);
+    font-size: 1.1rem;
+}
+
+/* Error State */
+.error-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    gap: var(--spacing-md);
+    text-align: center;
+}
+
+.error-icon {
+    font-size: 4rem;
+    color: #ef4444;
+}
+
+.error-state h2 {
+    color: #ef4444;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.back-link-error {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 24px;
+    background: var(--primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.back-link-error:hover {
+    background: var(--secondary);
+    transform: translateY(-2px);
+}
+
+/* Navigation Header */
+.nav-header {
+    margin-bottom: var(--spacing-md);
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--secondary);
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.2s;
+}
+
+.back-link:hover {
+    color: var(--primary);
+}
+
+.back-link::before {
+    content: "←";
+    font-size: 1.2em;
+}
+
+[dir="rtl"] .back-link::before {
+    content: "→";
+}
+
+/* Card Styling */
+.details-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    padding: var(--spacing-lg);
+    border: 1px solid var(--border-color);
+}
+
+/* Page Header */
+.page-header {
+    padding-bottom: var(--spacing-md);
+}
+
+.page-title {
+    color: var(--primary);
+    font-size: 2.2rem;
+    margin: 0 0 var(--spacing-sm) 0;
+    line-height: 1.2;
+}
+
+.header-meta {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+}
+
+.meta-badge {
+    background: var(--light-bg);
+    padding: 6px 14px;
+    border-radius: 8px;
+    color: #64748b;
+    font-size: 0.9rem;
+    border: 1px solid var(--border-color);
+}
+
+.meta-badge strong {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.divider {
+    border: 0;
+    height: 1px;
+    background: var(--border-color);
+    margin: var(--spacing-lg) 0;
+}
+
+/* Content Sections */
+.content-section {
+    margin-bottom: var(--spacing-lg);
+}
+
+.section-title {
+    font-size: 1.3rem;
+    color: var(--primary);
+    margin-bottom: var(--spacing-md);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.section-title::before {
+    content: "";
+    width: 4px;
+    height: 24px;
+    background: var(--secondary);
+    border-radius: 2px;
+}
+
+/* Aya Arabic Text Section */
+.aya-section {
+    background: linear-gradient(to bottom right, #f8fcfb, #ffffff);
+    border: 2px solid var(--border-color);
+    padding: var(--spacing-lg);
+    border-radius: 12px;
+}
+
+.aya-text-container {
+    background: white;
+    padding: var(--spacing-lg);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.aya-text-arabic {
+    font-family: 'Amiri', 'Traditional Arabic', serif;
+    font-size: 2rem;
+    line-height: 2.2;
+    color: var(--primary);
+    text-align: center;
+    margin: 0;
+    direction: rtl;
+    font-weight: 500;
+}
+
+/* Translations Section */
+.translations-section {
+    margin-top: var(--spacing-lg);
+}
+
+.no-translations {
+    text-align: center;
+    padding: var(--spacing-lg);
+    color: #64748b;
+    font-style: italic;
+}
+
+.translation-group {
+    margin-bottom: var(--spacing-lg);
+}
+
+.language-header {
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-xs);
+    border-bottom: 2px solid var(--secondary);
+}
+
+.language-name {
+    font-size: 1.2rem;
+    color: var(--secondary);
+    margin: 0;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.language-name::before {
+    content: "🌐";
+    font-size: 1.3rem;
+}
+
+.translations-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.translation-card {
+    background: var(--light-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: var(--spacing-md);
+    transition: all 0.2s;
+}
+
+.translation-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+}
+
+.translator-name {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--secondary);
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.translator-icon {
+    font-size: 1rem;
+}
+
+.translation-text {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #334155;
+    margin: 0;
+    padding-top: var(--spacing-xs);
+    border-top: 1px solid var(--border-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .aya-details-page {
+        padding: var(--spacing-sm);
+    }
+
+    .details-card {
+        padding: var(--spacing-md);
+    }
+
+    .page-title {
+        font-size: 1.75rem;
+    }
+
+    .aya-text-arabic {
+        font-size: 1.6rem;
+        line-height: 2;
+    }
+
+    .section-title {
+        font-size: 1.1rem;
+    }
+
+    .translation-text {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-title {
+        font-size: 1.5rem;
+    }
+
+    .aya-text-arabic {
+        font-size: 1.4rem;
+        line-height: 1.9;
+    }
+
+    .header-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .meta-badge {
+        display: block;
+        text-align: center;
+    }
+}

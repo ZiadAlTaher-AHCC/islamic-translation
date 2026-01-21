@@ -3,8 +3,21 @@
 
         <!-- Logo -->
         <a routerLink="/" class="logo" (click)="closeMenu()">
-            <span class="logo-text">Islamic<span class="highlight">Translation</span></span>
+            <!-- <span class="logo-text">Islamic<span class="highlight">Translation</span></span> -->
+            <img src="assets/images/logo.png" alt="Logo" class="logo" />
         </a>
+
+        <div class="search-wrapper" #dropdown>
+            <!-- Search Icon -->
+            <button class="search-btn" (click)="toggleDropdown($event)">
+                🔍
+            </button>
+
+            <!-- Dropdown Input -->
+            <div class="dropdown" *ngIf="isOpen">
+                <input type="text" placeholder="Search..." [(ngModel)]="searchText" (keyup.enter)="onSearch()" #searchInput />
+            </div>
+        </div>
 
         <!-- Hamburger Menu (Mobile) -->
         <button class="hamburger" (click)="toggleMenu()" aria-label="Toggle Navigation">

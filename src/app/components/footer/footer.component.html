@@ -3,16 +3,16 @@
         <div class="footer-grid">
             <!-- Company Info -->
             <div class="footer-col">
-                <h3>Islamic<span class="highlight">Translation</span></h3>
+                <!-- <h3>Islamic<span class="highlight">Translation</span></h3> -->
+                <img src="assets/images/logo.png" alt="Logo" class="logo" />
                 <p class="tagline">{{ translationService.translations()['HERO']?.['SUBTITLE'] }}</p>
             </div>
 
             <!-- Links -->
             <div class="footer-col">
-                <h4>{{ translationService.translations()['FOOTER']?.['CONTACT'] }}</h4>
+                <h4>{{ translationService.translations()['HOME']?.['OUR_MESSAGE'] }}</h4>
                 <ul>
-                    <li>contact&#64;islamictranslation.com</li>
-                    <li>+123 456 7890</li>
+                    <li>{{ translationService.translations()['HOME']?.['OUR_MESSAGE_CONTENT'] }}</li>
                 </ul>
             </div>
 
@@ -21,7 +21,7 @@
                 <h4>{{ translationService.translations()['FOOTER']?.['FOLLOW'] }}</h4>
                 <div class="social-links">
                     <!-- Facebook -->
-                    <a href="#" aria-label="Facebook">
+                    <a href="https://www.facebook.com/islamicttf" aria-label="Facebook">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                             fill="currentColor">
                             <path
@@ -29,7 +29,7 @@
                         </svg>
                     </a>
                     <!-- Twitter (X) -->
-                    <a href="#" aria-label="Twitter">
+                    <a href="https://x.com/islamicttf" aria-label="Twitter">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                             fill="currentColor">
                             <path
@@ -37,7 +37,7 @@
                         </svg>
                     </a>
                     <!-- WhatsApp -->
-                    <a href="#" aria-label="WhatsApp">
+                    <a href="https://wa.me/" aria-label="WhatsApp">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                             fill="currentColor">
                             <path

@@ -22,37 +22,41 @@
                 <div class="meta-info">
                     <!-- Views -->
                     <div class="meta-item">
-                        <span class="label">{{ translationService.translations()['TRANSLATIONS']?.['TERMINOLOGY']?.['VIEWS'] }}:</span>
+                        <span class="label">{{
+                            translationService.translations()['TRANSLATIONS']?.['TERMINOLOGY']?.['VIEWS'] }}:</span>
                         <span class="value">{{ t.viewCount }}</span>
                     </div>
 
                     <!-- Category -->
                     <div class="meta-item clickable" [routerLink]="['/terminology']"
                         [queryParams]="{categoryId: t.categoryId}">
-                        <span class="label">{{ translationService.translations()['TRANSLATIONS']?.['TERMINOLOGY']?.['CATEGORY'] }}:</span>
-                        <span class="value badge">{{ translationService.currentLang() === 'en' ? t.categoryName :
-                            t.categoryNameArabic }}</span>
+                        <span class="label">{{
+                            translationService.translations()['TRANSLATIONS']?.['TERMINOLOGY']?.['CATEGORY'] }}:</span>
+                        <span class="value badge">{{ translationService.currentLang() === 'en' ? t.categoryNameEn :
+                            t.categoryNameAr }}</span>
                     </div>
 
                     <!-- Letter -->
                     <div class="meta-item clickable" [routerLink]="['/terminology']"
                         [queryParams]="{letterId: t.letterId}">
-                        <span class="label">{{ translationService.translations()['TRANSLATIONS']?.['TERMINOLOGY']?.['LETTER'] }}:</span>
-                        <span class="value badge">{{ translationService.currentLang() === 'en' ? t.letterName :
-                            t.letterNameArabic }}</span>
+                        <span class="label">{{
+                            translationService.translations()['TRANSLATIONS']?.['TERMINOLOGY']?.['LETTER'] }}:</span>
+                        <span class="value badge">{{ t.letterName }}</span>
                     </div>
                 </div>
             </div>
 
             <!-- Linguistic Meaning -->
             <div class="content-section">
-                <h2>{{ translationService.translations()['TRANSLATIONS']?.['TERMINOLOGY']?.['MEANING_LINGUISTIC'] }}</h2>
+                <h2>{{ translationService.translations()['TRANSLATIONS']?.['TERMINOLOGY']?.['MEANING_LINGUISTIC'] }}
+                </h2>
                 <p class="meaning-text">{{ t.meaningLanguage }}</p>
             </div>
 
             <!-- Terminological Meaning -->
             <div class="content-section">
-                <h2>{{ translationService.translations()['TRANSLATIONS']?.['TERMINOLOGY']?.['MEANING_TERMINOLOGICAL'] }}</h2>
+                <h2>{{ translationService.translations()['TRANSLATIONS']?.['TERMINOLOGY']?.['MEANING_TERMINOLOGICAL'] }}
+                </h2>
                 <p class="meaning-text">{{ t.meaningTerm }}</p>
             </div>
 
@@ -68,7 +72,8 @@
             <div class="content-section highlight-section">
                 <div class="control-group">
                     <label class="section-label">{{
-                        translationService.translations()['TRANSLATIONS']?.['TERMINOLOGY']?.['SELECT_TRANSLATION_LANG'] }}</label>
+                        translationService.translations()['TRANSLATIONS']?.['TERMINOLOGY']?.['SELECT_TRANSLATION_LANG']
+                        }}</label>
                     <div class="custom-select-wrapper">
                         <select (change)="setTranslationLang($event)" class="custom-select">
                             <option value="english">English</option>
@@ -80,7 +85,8 @@
                 </div>
 
                 <div class="result-box">
-                    <label class="result-label">{{ translationService.translations()['TRANSLATIONS']?.['TERMINOLOGY']?.['TRANSLATION']
+                    <label class="result-label">{{
+                        translationService.translations()['TRANSLATIONS']?.['TERMINOLOGY']?.['TRANSLATION']
                         }}</label>
                     <p class="translation-text">{{ currentTranslation }}</p>
                 </div>
@@ -90,7 +96,8 @@
             <div class="content-section highlight-section">
                 <div class="control-group">
                     <label class="section-label">{{
-                        translationService.translations()['TRANSLATIONS']?.['TERMINOLOGY']?.['SELECT_SYNONYM_LANG'] }}</label>
+                        translationService.translations()['TRANSLATIONS']?.['TERMINOLOGY']?.['SELECT_SYNONYM_LANG']
+                        }}</label>
                     <div class="custom-select-wrapper">
                         <select (change)="setSynonymLang($event)" class="custom-select">
                             <option value="english">English</option>
@@ -102,10 +109,11 @@
                 </div>
 
                 <div class="result-box">
-                    <label class="result-label">{{ translationService.translations()['TRANSLATIONS']?.['TERMINOLOGY']?.['SYNONYMS']
+                    <label class="result-label">{{
+                        translationService.translations()['TRANSLATIONS']?.['TERMINOLOGY']?.['SYNONYMS']
                         }}</label>
                     <div class="synonyms-list">
-                        <span *ngFor="let syn of currentSynonyms" class="synonym-tag">{{ syn }}</span>
+                        <span *ngIf="currentSynonyms" class="synonym-tag">{{ currentSynonyms }}</span>
                     </div>
                 </div>
             </div>

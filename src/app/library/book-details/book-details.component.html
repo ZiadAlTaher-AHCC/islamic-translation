@@ -16,8 +16,7 @@
             <div class="details-header">
                 <div class="header-content">
                     <h1 class="book-title">
-                        <span *ngIf="translationService.currentLang() === 'en'">{{ b.title }}</span>
-                        <span *ngIf="translationService.currentLang() === 'ar'">{{ b.titleArabic }}</span>
+                        {{ b.title }}
                     </h1>
 
                     <div class="meta-row main-meta">
@@ -52,7 +51,7 @@
                 <div class="book-image-container">
                     <img *ngIf="b.imageUrl" [src]="b.imageUrl" [alt]="b.title" class="book-cover">
                     <div *ngIf="!b.imageUrl" class="book-placeholder">
-                        <span>{{ translationService.currentLang() === 'en' ? b.title : b.titleArabic }}</span>
+                        <span>{{ b.title }}</span>
                     </div>
                 </div>
 
@@ -64,22 +63,20 @@
                         <div class="info-row">
                             <span class="label">{{
                                 translationService.translations()['TRANSLATIONS']?.['LIBRARY']?.['AUTHOR'] }}:</span>
-                            <span class="value main-author">{{ translationService.currentLang() === 'en' ? b.author :
-                                b.authorArabic }}</span>
+                            <span class="value main-author">{{ b.author }}</span>
                         </div>
                         <div class="info-row" *ngIf="b.translator">
                             <span class="label">{{
                                 translationService.translations()['TRANSLATIONS']?.['LIBRARY']?.['TRANSLATOR']
                                 }}:</span>
-                            <span class="value">{{ translationService.currentLang() === 'en' ? b.translator :
-                                b.translatorArabic }}</span>
+                            <span class="value">{{ b.translator }}</span>
                         </div>
                     </div>
 
                     <!-- Description -->
                     <div class="description-section">
                         <p class="description-text">
-                            {{ translationService.currentLang() === 'en' ? b.description : b.descriptionArabic }}
+                            {{ b.description }}
                         </p>
                     </div>
 
@@ -88,22 +85,19 @@
                         <div class="detail-item">
                             <span class="label">{{
                                 translationService.translations()['TRANSLATIONS']?.['LIBRARY']?.['PUBLISHER'] }}</span>
-                            <span class="value">{{ translationService.currentLang() === 'en' ? b.publisher :
-                                b.publisherArabic }}</span>
+                            <span class="value">{{ b.publisher }}</span>
                         </div>
                         <div class="detail-item">
                             <span class="label">{{
                                 translationService.translations()['TRANSLATIONS']?.['LIBRARY']?.['SOURCE_LANG']
                                 }}</span>
-                            <span class="value">{{ translationService.currentLang() === 'en' ? b.sourceLang :
-                                b.sourceLangArabic }}</span>
+                            <span class="value">{{ b.sourceLang }}</span>
                         </div>
                         <div class="detail-item">
                             <span class="label">{{
                                 translationService.translations()['TRANSLATIONS']?.['LIBRARY']?.['TARGET_LANG']
                                 }}</span>
-                            <span class="value">{{ translationService.currentLang() === 'en' ? b.targetLang :
-                                b.targetLangArabic }}</span>
+                            <span class="value">{{ b.targetLang }}</span>
                         </div>
                         <div class="detail-item">
                             <span class="label">{{

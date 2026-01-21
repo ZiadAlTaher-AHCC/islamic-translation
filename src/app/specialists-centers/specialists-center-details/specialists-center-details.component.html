@@ -16,17 +16,16 @@
             <div class="details-header">
                 <div class="header-content">
                     <h1 class="center-name">
-                        <span *ngIf="translationService.currentLang() === 'en'">{{ c.name }}</span>
-                        <span *ngIf="translationService.currentLang() === 'ar'">{{ c.nameArabic }}</span>
+                        <span>{{ c.name }}</span>
                     </h1>
 
                     <div class="meta-row main-meta">
                         <span class="country-badge">
                             <i class="icon-location"></i>
-                            {{ translationService.currentLang() === 'en' ? c.countryName : c.countryNameArabic }}
+                            {{ c.countryName }}
                         </span>
                         <span class="location-text">
-                            {{ translationService.currentLang() === 'en' ? c.location : c.locationArabic }}
+                            {{ c.location }}
                         </span>
                         <span class="views-badge">
                             <i class="icon-eye"></i> {{ c.viewCount }} {{
@@ -45,8 +44,7 @@
                 <div class="info-item">
                     <span class="label">{{
                         translationService.translations()['TRANSLATIONS']?.['SPECIALISTS_CENTER']?.['MANAGER'] }}</span>
-                    <span class="value active-text">{{ translationService.currentLang() === 'en' ? c.managerName :
-                        c.managerNameArabic }}</span>
+                    <span class="value active-text">{{ c.managerName }}</span>
                 </div>
 
                 <div class="info-item">
@@ -81,9 +79,7 @@
                 <h2>{{ translationService.translations()['TRANSLATIONS']?.['SPECIALISTS_CENTER']?.['MASARAT_TITLE'] }}
                 </h2>
                 <ul class="styled-list">
-                    <li *ngFor="let item of (translationService.currentLang() === 'en' ? c.masarat : c.masaratArabic)">
-                        {{ item }}
-                    </li>
+                    <li [innerHTML]="c.masarat"></li>
                 </ul>
             </div>
 
@@ -92,12 +88,13 @@
                 <h2>{{ translationService.translations()['TRANSLATIONS']?.['SPECIALISTS_CENTER']?.['INTAG_TITLE'] }}
                 </h2>
                 <ul class="styled-list check-list">
-                    <li *ngFor="let item of (translationService.currentLang() === 'en' ? c.intag : c.intagArabic)">
-                        {{ item }}
-                    </li>
+                    <li [innerHTML]="c.intag"></li>
                 </ul>
             </div>
 
         </div>
     </div>
+</div>
+<div>
+    Not Found
 </div>

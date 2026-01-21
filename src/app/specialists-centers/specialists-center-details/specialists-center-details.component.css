@@ -214,7 +214,7 @@
 }
 
 .styled-list li::before {
-    content: "•";
+    content: " ";
     color: var(--secondary);
     font-weight: bold;
     position: absolute;
@@ -223,7 +223,7 @@
 }
 
 .check-list li::before {
-    content: "✓";
+    content: " ";
     color: #10b981;
     font-size: 1em;
 }

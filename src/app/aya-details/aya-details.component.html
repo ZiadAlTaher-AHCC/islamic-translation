@@ -1,0 +1,94 @@
+<div class="aya-details-page">
+    <div class="content-wrapper">
+
+        <!-- Loading State -->
+        <div *ngIf="isLoading()" class="loading-state">
+            <div class="loading-spinner"></div>
+            <p>{{ translationService.translations()['TRANSLATIONS']?.['AYA_DETAILS']?.['LOADING'] }}</p>
+        </div>
+
+        <!-- Error State -->
+        <div *ngIf="!isLoading() && errorMessage()" class="error-state">
+            <div class="error-icon">⚠</div>
+            <h2>{{ errorMessage() }}</h2>
+            <a routerLink="/search" class="back-link-error">
+                {{ translationService.translations()['TRANSLATIONS']?.['AYA_DETAILS']?.['BACK'] }}
+            </a>
+        </div>
+
+        <!-- Main Content -->
+        <div *ngIf="!isLoading() && !errorMessage() && aya() && surah()">
+
+            <!-- Navigation / Back -->
+            <div class="nav-header">
+                <a routerLink="/search" class="back-link">
+                    {{ translationService.translations()['TRANSLATIONS']?.['AYA_DETAILS']?.['BACK'] }}
+                </a>
+            </div>
+
+            <!-- Main Card -->
+            <div class="details-card">
+
+                <!-- Page Header: Surah - Aya Number -->
+                <div class="page-header">
+                    <h1 class="page-title">{{ getPageTitle() }}</h1>
+                    <div class="header-meta">
+                        <span class="meta-badge">
+                            {{ translationService.translations()['TRANSLATIONS']?.['AYA_DETAILS']?.['SURAH'] }}:
+                            <strong>{{ surah()?.name }}</strong>
+                        </span>
+                        <span class="meta-badge">
+                            {{ translationService.translations()['TRANSLATIONS']?.['AYA_DETAILS']?.['AYA_NUMBER'] }}:
+                            <strong>{{ aya()?.ayaNumber }}</strong>
+                        </span>
+                    </div>
+                </div>
+
+                <hr class="divider">
+
+                <!-- Aya Arabic Text Section -->
+                <div class="content-section aya-section">
+                    <h2 class="section-title">
+                        {{ translationService.translations()['TRANSLATIONS']?.['AYA_DETAILS']?.['ARABIC_TEXT'] }}
+                    </h2>
+                    <div class="aya-text-container">
+                        <p class="aya-text-arabic">{{ aya()?.text }}</p>
+                    </div>
+                </div>
+
+                <hr class="divider">
+
+                <!-- Translations Section -->
+                <div class="content-section translations-section">
+                    <h2 class="section-title">
+                        {{ translationService.translations()['TRANSLATIONS']?.['AYA_DETAILS']?.['TRANSLATIONS'] }}
+                    </h2>
+
+                    <!-- No Translations Message -->
+                    <div *ngIf="translationGroups().length === 0" class="no-translations">
+                        <p>{{ translationService.translations()['TRANSLATIONS']?.['AYA_DETAILS']?.['NO_TRANSLATIONS'] }}
+                        </p>
+                    </div>
+
+                    <!-- Translation Groups -->
+                    <div *ngFor="let group of translationGroups()" class="translation-group">
+                        <div class="language-header">
+                            <h3 class="language-name">{{ getLanguageName(group.language) }}</h3>
+                        </div>
+
+                        <div class="translations-list">
+                            <div *ngFor="let translation of group.translations" class="translation-card">
+                                <div class="translator-name">
+                                    <!-- <span class="translator-icon">👤</span> -->
+                                    {{ translation.translatorName }}
+                                </div>
+                                <p class="translation-text">{{ translation.translation }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

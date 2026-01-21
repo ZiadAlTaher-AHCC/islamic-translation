@@ -1,7 +1,7 @@
 <div class="card">
     <!-- Image section - only shown if imageUrl exists -->
     <div class="card-image" *ngIf="card.imageUrl">
-        <img [src]="card.imageUrl" [alt]="card.title">
+        <img [src]="card.imageUrl" [alt]="card.titleEn">
     </div>
 
     <!-- Content section -->
@@ -9,10 +9,10 @@
         <!-- Clickable title -->
         <h3 class="card-title">
             <a *ngIf="card.navigationUrl; else plainTitle" [routerLink]="card.navigationUrl" class="card-link">
-                {{ card.title }}
+                {{ translationService.currentLang() === 'en' ? getTruncatedTitleEn() : getTruncatedTitleAr() }}
             </a>
             <ng-template #plainTitle>
-                {{ card.title }}
+                {{ translationService.currentLang() === 'en' ? getTruncatedTitleEn() : getTruncatedTitleAr() }}
             </ng-template>
         </h3>
 

@@ -7,24 +7,26 @@
 
     <div *ngIf="!isLoading" class="content-wrapper">
         <!-- Header -->
-        <h1 class="page-title">{{ translationService.translations()['TRANSLATIONS']?.['HADITH_TRANSLATION']?.['TITLE'] }}</h1>
+        <h1 class="page-title">{{ translationService.translations()['TRANSLATIONS']?.['HADITH_TRANSLATION']?.['TITLE']
+            }}</h1>
 
         <!-- Selectors Container - 4 Columns -->
         <div class="selectors-container">
 
             <!-- Collection List -->
             <div class="selector-panel">
-                <h2 class="panel-title">{{ translationService.translations()['TRANSLATIONS']?.['HADITH_TRANSLATION']?.['COLLECTION'] }}
+                <h2 class="panel-title">{{
+                    translationService.translations()['TRANSLATIONS']?.['HADITH_TRANSLATION']?.['COLLECTION'] }}
                 </h2>
                 <div class="list-container">
-                    <div *ngFor="let collection of collections; trackBy: trackById" class="list-item"
-                        [class.selected]="selectedCollection?.id === collection.id"
-                        (click)="selectCollection(collection)" tabindex="0" role="button">
+                    <div *ngFor="let category of categories; trackBy: trackById" class="list-item"
+                        [class.selected]="selectedCategory?.id === category.id" (click)="selectCategory(category)"
+                        tabindex="0" role="button">
                         <div class="item-content">
-                            <div class="item-name" *ngIf="translationService.currentLang() === 'en'">{{ collection.name
+                            <div class="item-name" *ngIf="translationService.currentLang() === 'en'">{{ category.name
                                 }}</div>
                             <div class="item-name-arabic" [class.primary]="translationService.currentLang() === 'ar'">{{
-                                collection.nameArabic }}</div>
+                                category.name }}</div>
                         </div>
                     </div>
                 </div>
@@ -32,16 +34,17 @@
 
             <!-- Book List -->
             <div class="selector-panel">
-                <h2 class="panel-title">{{ translationService.translations()['TRANSLATIONS']?.['HADITH_TRANSLATION']?.['BOOK'] }}</h2>
+                <h2 class="panel-title">{{
+                    translationService.translations()['TRANSLATIONS']?.['HADITH_TRANSLATION']?.['BOOK'] }}</h2>
                 <div class="list-container">
-                    <div *ngFor="let book of books; trackBy: trackById" class="list-item"
-                        [class.selected]="selectedBook?.id === book.id" (click)="selectBook(book)" tabindex="0"
+                    <div *ngFor="let bab of babs; trackBy: trackById" class="list-item"
+                        [class.selected]="selectedBab?.id === bab.id" (click)="selectBab(bab)" tabindex="0"
                         role="button">
                         <div class="item-content">
-                            <div class="item-name" *ngIf="translationService.currentLang() === 'en'">{{ book.name }}
+                            <div class="item-name" *ngIf="translationService.currentLang() === 'en'">{{ bab.name }}
                             </div>
                             <div class="item-name-arabic" [class.primary]="translationService.currentLang() === 'ar'">{{
-                                book.nameArabic }}</div>
+                                bab.name }}</div>
                         </div>
                     </div>
                 </div>
@@ -49,7 +52,8 @@
 
             <!-- Chapter List -->
             <div class="selector-panel">
-                <h2 class="panel-title">{{ translationService.translations()['TRANSLATIONS']?.['HADITH_TRANSLATION']?.['CHAPTER'] }}</h2>
+                <h2 class="panel-title">{{
+                    translationService.translations()['TRANSLATIONS']?.['HADITH_TRANSLATION']?.['CHAPTER'] }}</h2>
                 <div class="list-container">
                     <div *ngFor="let chapter of chapters; trackBy: trackById" class="list-item"
                         [class.selected]="selectedChapter?.id === chapter.id" (click)="selectChapter(chapter)"
@@ -58,7 +62,7 @@
                             <div class="item-name" *ngIf="translationService.currentLang() === 'en'">{{ chapter.name }}
                             </div>
                             <div class="item-name-arabic" [class.primary]="translationService.currentLang() === 'ar'">{{
-                                chapter.nameArabic }}</div>
+                                chapter.name }}</div>
                         </div>
                     </div>
                 </div>
@@ -66,7 +70,8 @@
 
             <!-- Language List -->
             <div class="selector-panel">
-                <h2 class="panel-title">{{ translationService.translations()['TRANSLATIONS']?.['HADITH_TRANSLATION']?.['LANGUAGE'] }}</h2>
+                <h2 class="panel-title">{{
+                    translationService.translations()['TRANSLATIONS']?.['HADITH_TRANSLATION']?.['LANGUAGE'] }}</h2>
                 <div class="list-container">
                     <div *ngFor="let language of languages; trackBy: trackById" class="list-item"
                         [class.selected]="selectedLanguage?.id === language.id" (click)="selectLanguage(language)"
@@ -85,10 +90,8 @@
 
             <div class="chapter-info">
                 <h3>
-                    <span *ngIf="translationService.currentLang() === 'en'">{{ selectedBook?.name }} - {{
+                    <span>{{ selectedBab?.name }} - {{
                         selectedChapter?.name }}</span>
-                    <span *ngIf="translationService.currentLang() === 'ar'">{{ selectedBook?.nameArabic }} - {{
-                        selectedChapter?.nameArabic }}</span>
                 </h3>
             </div>
 
@@ -101,11 +104,13 @@
                     </div>
 
                     <!-- Translation Text -->
-                    <div class="hadith-translation" [dir]="selectedLanguage.code === 'ar' ? 'rtl' : 'ltr'">
+                    <div class="hadith-translation">
                         <p *ngIf="getTranslationText(hadith.id) as text; else noTranslation">{{ text }}</p>
                         <ng-template #noTranslation>
                             <div class="no-translation-msg">
-                                {{ translationService.translations()['TRANSLATIONS']?.['HADITH_TRANSLATION']?.['NO_TRANSLATION'] }}
+                                {{
+                                translationService.translations()['TRANSLATIONS']?.['HADITH_TRANSLATION']?.['NO_TRANSLATION']
+                                }}
                             </div>
                         </ng-template>
                     </div>

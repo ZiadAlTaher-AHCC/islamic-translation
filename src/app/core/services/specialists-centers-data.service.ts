@@ -13,102 +13,92 @@ export class SpecialistsCentersDataService {
         {
             id: 1,
             name: 'Center for Translation Studies',
-            nameArabic: 'مركز دراسات الترجمة',
             countryName: 'Saudi Arabia',
-            countryNameArabic: 'المملكة العربية السعودية',
             location: 'Riyadh - King Saud University',
-            locationArabic: 'الرياض - جامعة الملك سعود',
             managerName: 'Dr. Ahmad Al-Salem',
-            managerNameArabic: 'د. أحمد السالم',
             phone: '+966 11 467 0000',
             email: 'info@cts.ksu.edu.sa',
             websiteUrl: 'https://cts.ksu.edu.sa',
-            masarat: [
-                'Academic research in translation studies',
-                'Training translators on modern tools',
-                'Publishing peer-reviewed journals'
-            ],
-            masaratArabic: [
-                'البحث الأكاديمي في دراسات الترجمة',
-                'تدريب المترجمين على الأدوات الحديثة',
-                'نشر المجلات العلمية المحكمة'
-            ],
-            intag: [
-                'Annual Translation Conference Proceedings',
-                'Translation of 50+ academic books',
-                'Dictionary of Modern Terminology'
-            ],
-            intagArabic: [
-                'وقائع مؤتمر الترجمة السنوي',
-                'ترجمة أكثر من 50 كتاباً أكاديمياً',
-                'قاموس المصطلحات الحديثة'
-            ],
+            masarat: `<p>1. دورات التوفل (TOEFL) لأعضاء هيئة التدريس ومعاونيهم بجامعة بنها ومختلف الجامعات المصرية، وكذلك الباحثين بمختلف المعاهد البحثية.</p>
+
+<p>2. دورات في تنمية المهارات اللغوية لمعلمي المدارس الخاصة.</p>
+
+<p>3. دورات في اللغة الفرنسية لطلاب الجامعة.</p>
+
+<p>4. دورات تنمية مهارات اللغة لدى معلمي اللغة الإنجليزية بالجامعة، وذلك بالتعاون مع الإميديست بالقاهرة.</p>
+
+<p>5. ورش عمل بين مركز اللغات الأجنبية ودار ماكميلان للنشر.</p>
+
+<p>6. دورات في تدريس اللغة الإنجليزية في مرحلة رياض الأطفال (مستويين).</p>
+
+<p>7. دورات لتنمية مهارات التدريس لدى معلمي اللغة الإنجليزية بالجامعة.</p>
+
+<p>8. دورات في المحادثة باللغة الإنجليزية لطلاب الجامعة والمهتمين بتعلم اللغة.</p>
+
+<p>9. ورش عمل بين مركز اللغات الملحقية الثقافية بالسفارة الأمريكية لتدريب مدرسي اللغة بالجامعة على الأساليب المتنوعة لتقييم مهارة الكتابة.</p>
+
+<p>10. دورة اللغة الانجليزية لبرنامج جودة ومراقبة الأغذية لطلاب كلية الطب البيطري جامعة بنها.</p>`,
+            intag: `<p>1. دورات التوفل (TOEFL) لأعضاء هيئة التدريس ومعاونيهم بجامعة بنها ومختلف الجامعات المصرية، وكذلك الباحثين بمختلف المعاهد البحثية.</p>
+
+<p>2. دورات في تنمية المهارات اللغوية لمعلمي المدارس الخاصة.</p>
+
+<p>3. دورات في اللغة الفرنسية لطلاب الجامعة.</p>
+
+<p>4. دورات تنمية مهارات اللغة لدى معلمي اللغة الإنجليزية بالجامعة، وذلك بالتعاون مع الإميديست بالقاهرة.</p>
+
+<p>5. ورش عمل بين مركز اللغات الأجنبية ودار ماكميلان للنشر.</p>
+
+<p>6. دورات في تدريس اللغة الإنجليزية في مرحلة رياض الأطفال (مستويين).</p>
+
+<p>7. دورات لتنمية مهارات التدريس لدى معلمي اللغة الإنجليزية بالجامعة.</p>
+
+<p>8. دورات في المحادثة باللغة الإنجليزية لطلاب الجامعة والمهتمين بتعلم اللغة.</p>
+
+<p>9. ورش عمل بين مركز اللغات الملحقية الثقافية بالسفارة الأمريكية لتدريب مدرسي اللغة بالجامعة على الأساليب المتنوعة لتقييم مهارة الكتابة.</p>
+
+<p>10. دورة اللغة الانجليزية لبرنامج جودة ومراقبة الأغذية لطلاب كلية الطب البيطري جامعة بنها.</p>`,
             viewCount: 1250,
         },
         {
             id: 2,
             name: 'Islamic Translation Institute',
-            nameArabic: 'معهد الترجمة الإسلامي',
             countryName: 'Egypt',
-            countryNameArabic: 'مصر',
             location: 'Cairo - Al-Azhar',
-            locationArabic: 'القاهرة - الأزهر',
             managerName: 'Sheikh Mahmoud Ali',
-            managerNameArabic: 'الشيخ محمود علي',
             email: 'contact@iti.eg',
             websiteUrl: 'https://www.iti.eg',
-            masarat: [
-                'Translation of Islamic heritage texts',
-                'Training Imams on English preaching',
-                'Interfaith dialogue support'
-            ],
-            masaratArabic: [
-                'ترجمة نصوص التراث الإسلامي',
-                'تدريب الأئمة على الخطابة بالإنجليزية',
-                'دعم حوار الأديان'
-            ],
-            intag: [
-                'Translation of Tafsir Al-Jalalayn',
-                'Encyclopedia of Islamic Jurisprudence (English)',
-                'Monthly Newsletter'
-            ],
-            intagArabic: [
-                'ترجمة تفسير الجلالين',
-                'موسوعة الفقه الإسلامي (باللغة الإنجليزية)',
-                'النشرة الشهرية'
-            ],
+            masarat: `<ol>
+	<li>الإسهام في إنجاز موسوعة بيانية لترجمة معاني القرآن الكريم<span dir="LTR">.</span></li>
+	<li>تنظيم الملتقيات والندوات والمؤتمرات العلمية والثقافية.</li>
+	<li>تنظيم الأيام الدراسية والدورات التكوينية والورشات التدريبية.</li>
+	<li>إصدار مجلة متخصصة.</li>
+	<li>نشر أبحاث فردية وجماعية في ميادين: الترجمة والتدريب؛ والتكامل المعرفي، بين مختلف العلوم والمعارف.</li>
+	<li>تقديم استشارات وخبرات.</li>
+	<li>إنشاء خزانة متخصصة في الترجمة باللغات العربية والفرنسية والانجليزية.</li>
+	<li>تدريس اللغة العربية لغير الناطقين بها.</li>
+	<li>تنظيم دورات تكوينية في الترجمة.</li>
+	<li>تعليم اللغات الحية<span dir="LTR">.</span></li>
+</ol>
+
+<p><span dir="RTL">إصدار مجلة متخصصة في مجال الترجمة</span>.</p>`,
+            intag: `<ul>
+	<li>إقامة أربع مؤتمرات دولية</li>
+	<li>إصدار المجلة العلمية المتخصصة في الترجمة</li>
+</ul>
+
+<p><span dir="RTL">إقامة العديد من الدورات التدريبية والتعليمية </span></p>`,
             viewCount: 3400
         },
         {
             id: 3,
             name: 'Global Arabic Center',
-            nameArabic: 'المركز العربي العالمي',
             countryName: 'UAE',
-            countryNameArabic: 'الإمارات العربية المتحدة',
             location: 'Dubai - Knowledge Park',
-            locationArabic: 'دبي - قرية المعرفة',
             managerName: 'Ms. Layla Hassan',
-            managerNameArabic: 'أ. ليلى حسن',
             phone: '+971 4 390 1111',
             email: 'info@gac.ae',
-            masarat: [
-                'Localization of software and apps',
-                'Arabic content creation',
-                'Dubbing and subtitling'
-            ],
-            masaratArabic: [
-                'تعريب البرمجيات والتطبيقات',
-                'صناعة المحتوى العربي',
-                'الدبلجة والترجمة المرئية'
-            ],
-            intag: [
-                'Localized 100+ mobile apps',
-                'Arabic subtitles for 500+ hours of educational video'
-            ],
-            intagArabic: [
-                'تعريب أكثر من 100 تطبيق جوال',
-                'ترجمة مرئية لأكثر من 500 ساعة من الفيديو التعليمي'
-            ],
+            masarat: 'Localization of software and apps',
+            intag: 'Localized 100+ mobile apps',
             viewCount: 980,
         }
     ];
@@ -135,12 +125,11 @@ export class SpecialistsCentersDataService {
         const isEnglish = currentLang === 'en';
 
         // Use first element of Masarat or Location as description
-        const description = isEnglish
-            ? (center.masarat[0] || center.location)
-            : (center.masaratArabic[0] || center.locationArabic);
+        const description = center.location;
 
         return {
-            title: isEnglish ? center.name : center.nameArabic,
+            id: center.id,
+            titleAr: center.name,
             description: description,
             navigationUrl: `/specialists-centers/${center.id}`,
             viewCount: center.viewCount,

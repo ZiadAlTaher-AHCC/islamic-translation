@@ -21,8 +21,7 @@
             <div class="filter-grid" *ngIf="filterMode() === 'letter'">
                 <div *ngFor="let letter of letters(); trackBy: trackById" class="filter-card"
                     [class.selected]="selectedId() === letter.id" (click)="selectFilter(letter.id)">
-                    <span *ngIf="translationService.currentLang() === 'en'">{{ letter.char }}</span>
-                    <span *ngIf="translationService.currentLang() === 'ar'">{{ letter.charArabic }}</span>
+                    <span>{{ letter.name }}</span>
                 </div>
             </div>
 
@@ -30,8 +29,8 @@
             <div class="filter-grid" *ngIf="filterMode() === 'category'">
                 <div *ngFor="let category of categories(); trackBy: trackById" class="filter-card category-card"
                     [class.selected]="selectedId() === category.id" (click)="selectFilter(category.id)">
-                    <span *ngIf="translationService.currentLang() === 'en'">{{ category.name }}</span>
-                    <span *ngIf="translationService.currentLang() === 'ar'">{{ category.nameArabic }}</span>
+                    <span *ngIf="translationService.currentLang() === 'en'">{{ category.titleEn }}</span>
+                    <span *ngIf="translationService.currentLang() === 'ar'">{{ category.titleAr }}</span>
                 </div>
             </div>
 
@@ -48,15 +47,15 @@
 
                         <div class="term-badges">
                             <span class="badge category-badge">
-                                {{ translationService.currentLang() === 'en' ? term.categoryName :
-                                term.categoryNameArabic }}
+                                {{ translationService.currentLang() === 'en' ? term.categoryNameEn :
+                                term.categoryNameAr }}
                             </span>
                         </div>
                     </div>
-
+                    <!-- 
                     <div class="term-preview">
                         <p class="meaning-preview">{{ term.meaningTerm }}</p>
-                    </div>
+                    </div> -->
 
                     <div class="term-actions">
                         <a [routerLink]="['/terminology', term.id]" class="more-btn">

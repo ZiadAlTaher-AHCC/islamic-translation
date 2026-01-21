@@ -8,90 +8,90 @@ export class QuranDataService {
 
     // Mock Surah data - First 5 Surahs for demonstration
     private surahs: Surah[] = [
-        { suraId: 1, suraName: 'Al-Fatihah', suraNameArabic: 'الفاتحة', totalAyahs: 7 },
-        { suraId: 2, suraName: 'Al-Baqarah', suraNameArabic: 'البقرة', totalAyahs: 286 },
-        { suraId: 3, suraName: 'Ali \'Imran', suraNameArabic: 'آل عمران', totalAyahs: 200 },
-        { suraId: 4, suraName: 'An-Nisa', suraNameArabic: 'النساء', totalAyahs: 176 },
-        { suraId: 5, suraName: 'Al-Ma\'idah', suraNameArabic: 'المائدة', totalAyahs: 120 }
+        { id: 1, name: 'الفاتحة' },
+        { id: 2, name: 'البقرة' },
+        { id: 3, name: 'آل عمران' },
+        { id: 4, name: 'النساء' },
+        { id: 5, name: 'المائدة' }
     ];
 
     // Mock Ayah data - Sample ayahs from Al-Fatihah (Surah 1)
     private ayahs: Ayah[] = [
-        { ayaId: 1, ayaNumber: 1, suraId: 1, ayaTextArabic: 'بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ' },
-        { ayaId: 2, ayaNumber: 2, suraId: 1, ayaTextArabic: 'ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَٰلَمِينَ' },
-        { ayaId: 3, ayaNumber: 3, suraId: 1, ayaTextArabic: 'ٱلرَّحْمَٰنِ ٱلرَّحِيمِ' },
-        { ayaId: 4, ayaNumber: 4, suraId: 1, ayaTextArabic: 'مَٰلِكِ يَوْمِ ٱلدِّينِ' },
-        { ayaId: 5, ayaNumber: 5, suraId: 1, ayaTextArabic: 'إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ' },
-        { ayaId: 6, ayaNumber: 6, suraId: 1, ayaTextArabic: 'ٱهْدِنَا ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ' },
-        { ayaId: 7, ayaNumber: 7, suraId: 1, ayaTextArabic: 'صِرَٰطَ ٱلَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ ٱلْمَغْضُوبِ عَلَيْهِمْ وَلَا ٱلضَّآلِّينَ' },
+        { id: 1, ayaNumber: 1, suraId: 1, text: 'بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ' ,suraName: 'الفاتحة' },
+        { id: 2, ayaNumber: 2, suraId: 1, text: 'ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَٰلَمِينَ' ,suraName: 'الفاتحة' },
+        { id: 3, ayaNumber: 3, suraId: 1, text: 'ٱلرَّحْمَٰنِ ٱلرَّحِيمِ' ,suraName: 'الفاتحة' },
+        { id: 4, ayaNumber: 4, suraId: 1, text: 'مَٰلِكِ يَوْمِ ٱلدِّينِ' ,suraName: 'الفاتحة' },
+        { id: 5, ayaNumber: 5, suraId: 1, text: 'إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ' ,suraName: 'الفاتحة' },
+        { id: 6, ayaNumber: 6, suraId: 1, text: 'ٱهْدِنَا ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ' ,suraName: 'الفاتحة' },
+        { id: 7, ayaNumber: 7, suraId: 1, text: 'صِرَٰطَ ٱلَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ ٱلْمَغْضُوبِ عَلَيْهِمْ وَلَا ٱلضَّآلِّينَ' ,suraName: 'الفاتحة' },
 
         // Sample ayahs from Al-Baqarah (Surah 2) - First 3 ayahs
-        { ayaId: 8, ayaNumber: 1, suraId: 2, ayaTextArabic: 'الٓمٓ' },
-        { ayaId: 9, ayaNumber: 2, suraId: 2, ayaTextArabic: 'ذَٰلِكَ ٱلْكِتَٰبُ لَا رَيْبَ ۛ فِيهِ ۛ هُدًى لِّلْمُتَّقِينَ' },
-        { ayaId: 10, ayaNumber: 3, suraId: 2, ayaTextArabic: 'ٱلَّذِينَ يُؤْمِنُونَ بِٱلْغَيْبِ وَيُقِيمُونَ ٱلصَّلَوٰةَ وَمِمَّا رَزَقْنَٰهُمْ يُنفِقُونَ' }
+        { id: 8, ayaNumber: 1, suraId: 2, text: 'الٓمٓ' ,suraName: 'البقرة' },
+        { id: 9, ayaNumber: 2, suraId: 2, text: 'ذَٰلِكَ ٱلْكِتَٰبُ لَا رَيْبَ ۛ فِيهِ ۛ هُدًى لِّلْمُتَّقِينَ' ,suraName: 'البقرة' },
+        { id: 10, ayaNumber: 3, suraId: 2, text: 'ٱلَّذِينَ يُؤْمِنُونَ بِٱلْغَيْبِ وَيُقِيمُونَ ٱلصَّلَوٰةَ وَمِمَّا رَزَقْنَٰهُمْ يُنفِقُونَ' ,suraName: 'البقرة' }
     ];
 
     // Mock Language data
     private languages: Language[] = [
-        { languageId: 1, languageName: 'English', languageNativeName: 'English', languageCode: 'en' },
-        { languageId: 2, languageName: 'French', languageNativeName: 'Français', languageCode: 'fr' },
-        { languageId: 3, languageName: 'Spanish', languageNativeName: 'Español', languageCode: 'es' },
-        { languageId: 4, languageName: 'Turkish', languageNativeName: 'Türkçe', languageCode: 'tr' },
-        { languageId: 5, languageName: 'Chinese', languageNativeName: '中文', languageCode: 'zh' }
+        { id: 1, name: 'English' },
+        { id: 2, name: 'French' },
+        { id: 3, name: 'Spanish' },
+        { id: 4, name: 'Turkish' },
+        { id: 5, name: 'Chinese' }
     ];
 
     // Mock Translation data
     private translations: Translation[] = [
         // Al-Fatihah - Ayah 1 - English
-        { translationId: 1, ayaId: 1, languageId: 1, translatorName: 'Sahih International', translationText: 'In the name of Allah, the Entirely Merciful, the Especially Merciful.' },
-        { translationId: 2, ayaId: 1, languageId: 1, translatorName: 'Yusuf Ali', translationText: 'In the name of Allah, Most Gracious, Most Merciful.' },
+        { id: 1, ayaId: 1, languageName: 'English', translatorName: 'Sahih International', translation: 'In the name of Allah, the Entirely Merciful, the Especially Merciful.' },
+        { id: 2, ayaId: 1, languageName: 'English', translatorName: 'Yusuf Ali', translation: 'In the name of Allah, Most Gracious, Most Merciful.' },
 
         // Al-Fatihah - Ayah 1 - French
-        { translationId: 3, ayaId: 1, languageId: 2, translatorName: 'Muhammad Hamidullah', translationText: 'Au nom d\'Allah, le Tout Miséricordieux, le Très Miséricordieux.' },
+        { id: 3, ayaId: 1, languageName: 'French', translatorName: 'Muhammad Hamidullah', translation: 'Au nom d\'Allah, le Tout Miséricordieux, le Très Miséricordieux.' },
 
         // Al-Fatihah - Ayah 1 - Spanish
-        { translationId: 4, ayaId: 1, languageId: 3, translatorName: 'Muhammad Isa García', translationText: 'En el nombre de Dios, el Compasivo, el Misericordioso.' },
+        { id: 4, ayaId: 1, languageName: 'Spanish', translatorName: 'Muhammad Isa García', translation: 'En el nombre de Dios, el Compasivo, el Misericordioso.' },
 
         // Al-Fatihah - Ayah 1 - Turkish
-        { translationId: 5, ayaId: 1, languageId: 4, translatorName: 'Diyanet İşleri', translationText: 'Rahman ve Rahim olan Allah\'ın adıyla.' },
+        { id: 5, ayaId: 1, languageName: 'Turkish', translatorName: 'Diyanet İşleri', translation: 'Rahman ve Rahim olan Allah\'ın adıyla.' },
 
         // Al-Fatihah - Ayah 1 - Chinese
-        { translationId: 6, ayaId: 1, languageId: 5, translatorName: 'Ma Jian', translationText: '奉至仁至慈的真主之名' },
+        { id: 6, ayaId: 1, languageName: 'Chinese', translatorName: 'Ma Jian', translation: '奉至仁至慈的真主之名' },
 
         // Al-Fatihah - Ayah 2 - English
-        { translationId: 7, ayaId: 2, languageId: 1, translatorName: 'Sahih International', translationText: '[All] praise is [due] to Allah, Lord of the worlds.' },
-        { translationId: 8, ayaId: 2, languageId: 1, translatorName: 'Yusuf Ali', translationText: 'Praise be to Allah, the Cherisher and Sustainer of the worlds.' },
+        { id: 7, ayaId: 2, languageName: 'English', translatorName: 'Sahih International', translation: '[All] praise is [due] to Allah, Lord of the worlds.' },
+        { id: 8, ayaId: 2, languageName: 'English', translatorName: 'Yusuf Ali', translation: 'Praise be to Allah, the Cherisher and Sustainer of the worlds.' },
 
         // Al-Fatihah - Ayah 2 - French
-        { translationId: 9, ayaId: 2, languageId: 2, translatorName: 'Muhammad Hamidullah', translationText: 'Louange à Allah, Seigneur de l\'univers.' },
+        { id: 9, ayaId: 2, languageName: 'French', translatorName: 'Muhammad Hamidullah', translation: 'Louange à Allah, Seigneur de l\'univers.' },
 
         // Al-Fatihah - Ayah 3 - English
-        { translationId: 10, ayaId: 3, languageId: 1, translatorName: 'Sahih International', translationText: 'The Entirely Merciful, the Especially Merciful.' },
-        { translationId: 11, ayaId: 3, languageId: 1, translatorName: 'Yusuf Ali', translationText: 'Most Gracious, Most Merciful.' },
+        { id: 10, ayaId: 3, languageName: 'English', translatorName: 'Sahih International', translation: 'The Entirely Merciful, the Especially Merciful.' },
+        { id: 11, ayaId: 3, languageName: 'English', translatorName: 'Yusuf Ali', translation: 'Most Gracious, Most Merciful.' },
 
         // Al-Fatihah - Ayah 4 - English
-        { translationId: 12, ayaId: 4, languageId: 1, translatorName: 'Sahih International', translationText: 'Sovereign of the Day of Recompense.' },
-        { translationId: 13, ayaId: 4, languageId: 1, translatorName: 'Yusuf Ali', translationText: 'Master of the Day of Judgment.' },
+        { id: 12, ayaId: 4, languageName: 'English', translatorName: 'Sahih International', translation: 'Sovereign of the Day of Recompense.' },
+        { id: 13, ayaId: 4, languageName: 'English', translatorName: 'Yusuf Ali', translation: 'Master of the Day of Judgment.' },
 
         // Al-Fatihah - Ayah 5 - English
-        { translationId: 14, ayaId: 5, languageId: 1, translatorName: 'Sahih International', translationText: 'It is You we worship and You we ask for help.' },
-        { translationId: 15, ayaId: 5, languageId: 1, translatorName: 'Yusuf Ali', translationText: 'Thee do we worship, and Thine aid we seek.' },
+        { id: 14, ayaId: 5, languageName: 'English', translatorName: 'Sahih International', translation: 'It is You we worship and You we ask for help.' },
+        { id: 15, ayaId: 5, languageName: 'English', translatorName: 'Yusuf Ali', translation: 'Thee do we worship, and Thine aid we seek.' },
 
         // Al-Fatihah - Ayah 6 - English
-        { translationId: 16, ayaId: 6, languageId: 1, translatorName: 'Sahih International', translationText: 'Guide us to the straight path.' },
-        { translationId: 17, ayaId: 6, languageId: 1, translatorName: 'Yusuf Ali', translationText: 'Show us the straight way.' },
+        { id: 16, ayaId: 6, languageName: 'English', translatorName: 'Sahih International', translation: 'Guide us to the straight path.' },
+        { id: 17, ayaId: 6, languageName: 'English', translatorName: 'Yusuf Ali', translation: 'Show us the straight way.' },
 
         // Al-Fatihah - Ayah 7 - English
-        { translationId: 18, ayaId: 7, languageId: 1, translatorName: 'Sahih International', translationText: 'The path of those upon whom You have bestowed favor, not of those who have evoked [Your] anger or of those who are astray.' },
-        { translationId: 19, ayaId: 7, languageId: 1, translatorName: 'Yusuf Ali', translationText: 'The way of those on whom Thou hast bestowed Thy Grace, those whose (portion) is not wrath, and who go not astray.' },
+        { id: 18, ayaId: 7, languageName: 'English', translatorName: 'Sahih International', translation: 'The path of those upon whom You have bestowed favor, not of those who have evoked [Your] anger or of those who are astray.' },
+        { id: 19, ayaId: 7, languageName: 'English', translatorName: 'Yusuf Ali', translation: 'The way of those on whom Thou hast bestowed Thy Grace, those whose (portion) is not wrath, and who go not astray.' },
 
         // Al-Baqarah - Ayah 1 - English
-        { translationId: 20, ayaId: 8, languageId: 1, translatorName: 'Sahih International', translationText: 'Alif, Lam, Meem.' },
-        { translationId: 21, ayaId: 8, languageId: 1, translatorName: 'Yusuf Ali', translationText: 'A.L.M.' },
+        { id: 20, ayaId: 8, languageName: 'English', translatorName: 'Sahih International', translation: 'Alif, Lam, Meem.' },
+        { id: 21, ayaId: 8, languageName: 'English', translatorName: 'Yusuf Ali', translation: 'A.L.M.' },
 
         // Al-Baqarah - Ayah 2 - English
-        { translationId: 22, ayaId: 9, languageId: 1, translatorName: 'Sahih International', translationText: 'This is the Book about which there is no doubt, a guidance for those conscious of Allah.' },
-        { translationId: 23, ayaId: 9, languageId: 1, translatorName: 'Yusuf Ali', translationText: 'This is the Book; in it is guidance sure, without doubt, to those who fear Allah.' }
+        { id: 22, ayaId: 9, languageName: 'English', translatorName: 'Sahih International', translation: 'This is the Book about which there is no doubt, a guidance for those conscious of Allah.' },
+        { id: 23, ayaId: 9, languageName: 'English', translatorName: 'Yusuf Ali', translation: 'This is the Book; in it is guidance sure, without doubt, to those who fear Allah.' }
     ];
 
     constructor() { }
@@ -130,10 +130,105 @@ export class QuranDataService {
      * @param languageId The ID of the Language
      * @returns Array of Translation objects
      */
-    getTranslations(ayaId: number, languageId: number): Translation[] {
+    getTranslations(ayaId: number, languageName: string): Translation[] {
         // In future, replace this with: return this.http.get<Translation[]>(`/api/translations?ayaId=${ayaId}&languageId=${languageId}`);
         return this.translations.filter(
-            translation => translation.ayaId === ayaId && translation.languageId === languageId
+            translation => translation.ayaId === ayaId && translation.languageName === languageName
         );
+    }
+
+    /**
+     * Search Ayahs by text query
+     * @param query Search query
+     * @returns Array of Ayah objects that contain the query text (Arabic) or have translations containing the query
+     */
+    searchAyahs(query: string): { ayah: Ayah, matches: string[] }[] {
+        const normalizedQuery = query.toLowerCase().trim();
+        if (!normalizedQuery) return [];
+
+        const results: { ayah: Ayah, matches: string[] }[] = [];
+
+        // 1. Search in Arabic Text (Ayahs)
+        this.ayahs.forEach(ayah => {
+            if (ayah.text.includes(normalizedQuery)) {
+                results.push({ ayah, matches: [ayah.text] });
+            }
+        });
+
+        // 2. Search in Translations
+        // This is a bit complex because we need to map translation back to ayah.
+        // For simplicity in this mock service, we'll iterate translations.
+        this.translations.forEach(translation => {
+            if (translation.translation.toLowerCase().includes(normalizedQuery)) {
+                // Check if we already have this ayah in results
+                const existingResult = results.find(r => r.ayah.id === translation.ayaId);
+                if (existingResult) {
+                    if (!existingResult.matches.includes(translation.translation)) {
+                        existingResult.matches.push(translation.translation);
+                    }
+                } else {
+                    const ayah = this.ayahs.find(a => a.id === translation.ayaId);
+                    if (ayah) {
+                        results.push({ ayah, matches: [translation.translation] });
+                    }
+                }
+            }
+        });
+
+        return results;
+    }
+
+    /**
+     * Get a single Ayah by ID
+     * @param ayaId The ID of the Ayah
+     * @returns Ayah object or undefined if not found
+     */
+    getAyaById(ayaId: number): Ayah | undefined {
+        // In future, replace this with: return this.http.get<Ayah>(`/api/ayahs/${ayaId}`);
+        return this.ayahs.find(ayah => ayah.id === ayaId);
+    }
+
+    /**
+     * Get a single Surah by ID
+     * @param suraId The ID of the Surah
+     * @returns Surah object or undefined if not found
+     */
+    getSurahById(suraId: number): Surah | undefined {
+        // In future, replace this with: return this.http.get<Surah>(`/api/surahs/${suraId}`);
+        return this.surahs.find(surah => surah.id === suraId);
+    }
+
+    /**
+     * Get all translations for an Ayah, grouped by language
+     * @param ayaId The ID of the Ayah
+     * @returns Array of objects containing language info and associated translations
+     */
+    getAllTranslationsByAyaId(ayaId: number): { language: Language, translations: Translation[] }[] {
+        // In future, replace this with: return this.http.get<...>(`/api/ayahs/${ayaId}/translations`);
+
+        // Get all translations for this ayah
+        const ayahTranslations = this.translations.filter(t => t.ayaId === ayaId);
+
+        // Group by language
+        const groupedMap = new Map<string, Translation[]>();
+
+        ayahTranslations.forEach(translation => {
+            if (!groupedMap.has(translation.languageName)) {
+                groupedMap.set(translation.languageName, []);
+            }
+            groupedMap.get(translation.languageName)!.push(translation);
+        });
+
+        // Convert to result format with language objects
+        const result: { language: Language, translations: Translation[] }[] = [];
+
+        groupedMap.forEach((translations, languageName) => {
+            const language = this.languages.find(l => l.name === languageName);
+            if (language) {
+                result.push({ language, translations });
+            }
+        });
+
+        return result;
     }
 }

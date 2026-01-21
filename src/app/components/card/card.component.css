@@ -17,7 +17,7 @@
 /* Image section */
 .card-image {
     flex-shrink: 0;
-    width: 150px;
+    width: 70px;
     overflow: hidden;
 }
 

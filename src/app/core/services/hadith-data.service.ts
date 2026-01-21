@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HadithCollection, HadithBook, HadithChapter, Hadith, HadithTranslation, Language } from '../../models/hadith.models';
+import { HadithCategory, HadithBabs, HadithChapter, Hadith, HadithTranslation, Language } from '../../models/hadith.models';
 
 @Injectable({
     providedIn: 'root'
@@ -7,39 +7,39 @@ import { HadithCollection, HadithBook, HadithChapter, Hadith, HadithTranslation,
 export class HadithDataService {
 
     // Mock Data
-    private collections: HadithCollection[] = [
-        { id: 1, name: 'Sahih al-Bukhari', nameArabic: 'صحيح البخاري' },
-        { id: 2, name: 'Sahih Muslim', nameArabic: 'صحيح مسلم' }
-    ];
-
-    private books: HadithBook[] = [
-        { id: 1, collectionId: 1, name: 'Revelation', nameArabic: 'كتاب بدء الوحي' },
-        { id: 2, collectionId: 1, name: 'Belief', nameArabic: 'كتاب الإيمان' },
-        { id: 3, collectionId: 2, name: 'Faith', nameArabic: 'كتاب الإيمان' }
+    private categories: HadithCategory[] = [
+        { id: 1, name: 'صحيح البخاري' },
+        { id: 2, name: 'صحيح مسلم' }
     ];
 
     private chapters: HadithChapter[] = [
-        { id: 1, bookId: 1, name: 'How the Divine Inspiration started', nameArabic: 'باب كَيْفَ كَانَ بَدْءُ الْوَحْيِ إِلَى رَسُولِ اللَّهِ صلى الله عليه وسلم' },
-        { id: 2, bookId: 2, name: 'The statement of the Prophet: "Islam is based on five principles"', nameArabic: 'باب دُعَاؤُكُمْ إِيمَانُكُمْ' }, // Simplified mapping for demo
-        { id: 3, bookId: 3, name: 'Introduction to Faith', nameArabic: 'باب مَعْرِفَةِ الإِيمَانِ وَالإِسْلاَمِ' }
+        { id: 1, categoryId: 1, name: 'بدا الوحي ' },
+        { id: 2, categoryId: 2, name: 'بني الاسلام على خمس ' }, // Simplified mapping for demo
+        { id: 3, categoryId: 3, name: 'مقدمه ي الايمان' }
+    ];
+
+    private babs: HadithBabs[] = [
+        { id: 1, chapterId: 1, name: 'الايات' },
+        { id: 2, chapterId: 1, name: 'الايمان' },
+        { id: 3, chapterId: 2, name: 'الايمان' }
     ];
 
     private hadiths: Hadith[] = [
         // Bukhari - Revelation - Chapter 1
         {
             id: 1,
-            chapterId: 1,
+            babId: 1,
             textArabic: 'سَمِعْتُ عُمَرَ بْنَ الْخَطَّابِ ـ رضى الله عنه ـ عَلَى الْمِنْبَرِ يَقُولُ سَمِعْتُ رَسُولَ اللَّهِ صلى الله عليه وسلم يَقُولُ " إِنَّمَا الأَعْمَالُ بِالنِّيَّاتِ، وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى، فَمَنْ كَانَتْ هِجْرَتُهُ إِلَى دُنْيَا يُصِيبُهَا أَوْ إِلَى امْرَأَةٍ يَنْكِحُهَا فَهِجْرَتُهُ إِلَى مَا هَاجَرَ إِلَيْهِ ".'
         },
         {
             id: 2,
-            chapterId: 1,
+            babId: 1,
             textArabic: 'عَنْ عَائِشَةَ أُمِّ الْمُؤْمِنِينَ ـ رضى الله عنها ـ أَنَّ الْحَارِثَ بْنَ هِشَامٍ ـ رضى الله عنه ـ سَأَلَ رَسُولَ اللَّهِ صلى الله عليه وسلم فَقَالَ يَا رَسُولَ اللَّهِ كَيْفَ يَأْتِيكَ الْوَحْيُ فَقَالَ رَسُولُ اللَّهِ صلى الله عليه وسلم " أَحْيَانًا يَأْتِينِي مِثْلَ صَلْصَلَةِ الْجَرَسِ ـ وَهُوَ أَشَدُّهُ عَلَىَّ ـ فَيُفْصَمُ عَنِّي وَقَدْ وَعَيْتُ عَنْهُ مَا قَالَ، وَأَحْيَانًا يَتَمَثَّلُ لِيَ الْمَلَكُ رَجُلاً فَيُكَلِّمُنِي فَأَعِي مَا يَقُولُ "، قَالَتْ عَائِشَةُ رضى الله عنها وَلَقَدْ رَأَيْتُهُ يَنْزِلُ عَلَيْهِ الْوَحْيُ فِي الْيَوْمِ الشَّدِيدِ الْبَرْدِ، فَيُفْصَمُ عَنْهُ وَإِنَّ جَبِينَهُ لَيَتَفَصَّدُ عَرَقًا.'
         },
         // Muslim - Faith - Chapter 3
         {
             id: 3,
-            chapterId: 3,
+            babId: 3,
             textArabic: 'حَدَّثَنَا أَبُو خَيْثَمَةَ، زُهَيْرُ بْنُ حَرْبٍ حَدَّثَنَا وَكِيعٌ، عَنْ كَهْمَسٍ، عَنْ عَبْدِ اللَّهِ بْنِ بُرَيْدَةَ، عَنْ يَحْيَى بْنِ يَعْمَرَ، ... قَالَ " فَأَخْبِرْنِي عَنِ الإِيمَانِ ‏.‏ قَالَ ‏"‏ أَنْ تُؤْمِنَ بِاللَّهِ وَمَلاَئِكَتِهِ وَكُتُبِهِ وَرُسُلِهِ وَالْيَوْمِ الآخِرِ وَتُؤْمِنَ بِالْقَدَرِ خَيْرِهِ وَشَرِّهِ ‏"‏ ‏.‏ قَالَ صَدَقْتَ'
         }
     ];
@@ -57,31 +57,31 @@ export class HadithDataService {
     ];
 
     private languages: Language[] = [
-        { id: 1, name: 'English', code: 'en' },
-        { id: 2, name: 'Français', code: 'fr' },
-        { id: 3, name: 'Bahasa Indonesia', code: 'id' }
+        { id: 1, name: 'English' },
+        { id: 2, name: 'Français' },
+        { id: 3, name: 'Bahasa Indonesia' }
     ];
 
     constructor() { }
 
-    getCollections(): HadithCollection[] {
-        return this.collections;
+    getCategories(): HadithCategory[] {
+        return this.categories;
     }
 
-    getBooks(collectionId: number): HadithBook[] {
-        return this.books.filter(b => b.collectionId === collectionId);
+    getBabs(chapterId: number): HadithBabs[] {
+        return this.babs.filter(b => b.chapterId === chapterId);
     }
 
-    getChapters(bookId: number): HadithChapter[] {
-        return this.chapters.filter(c => c.bookId === bookId);
+    getChapters(categoryId: number): HadithChapter[] {
+        return this.chapters.filter(c => c.categoryId === categoryId);
     }
 
     getLanguages(): Language[] {
         return this.languages;
     }
 
-    getHadiths(chapterId: number): Hadith[] {
-        return this.hadiths.filter(h => h.chapterId === chapterId);
+    getHadiths(babId: number): Hadith[] {
+        return this.hadiths.filter(h => h.babId === babId);
     }
 
     getTranslation(hadithId: number, languageId: number): HadithTranslation | undefined {

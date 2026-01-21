@@ -9,6 +9,16 @@
         "ABOUT": "ABOUT US",
         "TRANSLATIONS": "TRANSLATIONS"
     },
+    "SEARCH": {
+        "PAGE_TITLE": "Search Results",
+        "RESULTS_FOR": "Results for",
+        "NO_RESULTS": "No results found.",
+        "BOOKS": "Books",
+        "TERMS": "Terminology",
+        "QURAN": "Quran",
+        "MATCHES": "Matches",
+        "VIEW_DETAILS": "View Details"
+    },
     "FOOTER": {
         "COPYRIGHT": "© 2026 Islamic Translation. All rights reserved.",
         "CONTACT": "Contact Us",
@@ -32,7 +42,20 @@
         "QURAN_BOOKS": "Quran Books",
         "HADITH_BOOKS": "Hadith Books",
         "OUR_MESSAGE": "Our Message",
-        "STATIC_CONTENT": "Static Content Static Content Static Content Static Content Static Content Static Content Static Content"
+        "OUR_MESSAGE_CONTENT": "To raise the level of translation of Islamic texts, and to create an environment that contributes to raising the level of translators and researchers concerned, to convey the will of God and His Messenger, may God bless him and grant him peace, into other languages ​​other than Arabic, free from error, distortion or alteration, and in a sound and modern scientific style.",
+        "STATIC_CONTENT": "Static Content Static Content Static Content Static Content Static Content Static Content Static Content",
+        "CONTACT_US": "Contact Us",
+        "CONTACT_US_SUBTITLE": "We'd love to hear from you. Send us a message and we'll respond as soon as possible.",
+        "CONTACT_NAME_PLACEHOLDER": "Your Name",
+        "CONTACT_EMAIL_PLACEHOLDER": "Your Email",
+        "CONTACT_ADDRESS_PLACEHOLDER": "Your Address",
+        "CONTACT_MESSAGE_PLACEHOLDER": "Your Message",
+        "CONTACT_NAME_ERROR": "Please enter a valid name (minimum 2 characters)",
+        "CONTACT_EMAIL_ERROR": "Please enter a valid email address",
+        "CONTACT_ADDRESS_ERROR": "Please enter your address",
+        "CONTACT_MESSAGE_ERROR": "Please enter a message (minimum 10 characters)",
+        "CONTACT_SUBMIT": "Send Message",
+        "CONTACT_SUCCESS": "Thank you! Your message has been sent successfully."
     },
     "PAGES": {
         "NEWS_EVENTS": "News & Events",
@@ -104,6 +127,20 @@
             "NO_TRANSLATION": "No translation available in this language",
             "SELECT_ALL": "Please select all options to view Hadiths",
             "LOADING": "Loading Hadith translations..."
+        },
+        "AYA_DETAILS": {
+            "TITLE": "Aya Details",
+            "BACK": "Back to Search",
+            "SURAH": "Surah",
+            "AYA_NUMBER": "Aya",
+            "ARABIC_TEXT": "Arabic Text",
+            "TRANSLATIONS": "Translations",
+            "TRANSLATOR": "Translator",
+            "LANGUAGE": "Language",
+            "NO_TRANSLATIONS": "No translations available for this Aya",
+            "INVALID_AYA": "Invalid Aya ID",
+            "AYA_NOT_FOUND": "Aya not found",
+            "LOADING": "Loading Aya details..."
         },
         "TERMINOLOGY": {
             "TITLE": "Terminology",

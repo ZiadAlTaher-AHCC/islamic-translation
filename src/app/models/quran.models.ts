@@ -1,28 +1,25 @@
 export interface Surah {
-    suraId: number;
-    suraName: string;
-    suraNameArabic: string;
-    totalAyahs: number;
+    id: number;
+    name: string;
 }
 
 export interface Ayah {
-    ayaId: number;
+    id: number;
     ayaNumber: number;
     suraId: number;
-    ayaTextArabic: string;
+    suraName: string;
+    text: string;
 }
 
 export interface Language {
-    languageId: number;
-    languageName: string;
-    languageNativeName: string;
-    languageCode: string;
+    id: number;
+    name: string;
 }
 
 export interface Translation {
-    translationId: number;
+    id: number;
     ayaId: number;
-    languageId: number;
+    languageName: string;
     translatorName: string;
-    translationText: string;
+    translation: string;
 }

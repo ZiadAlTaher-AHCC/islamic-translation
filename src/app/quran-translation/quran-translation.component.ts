@@ -12,7 +12,7 @@ import { Surah, Ayah, Language, Translation } from '../models/quran.models';
     styleUrls: ['./quran-translation.component.css']
 })
 export class QuranTranslationComponent implements OnInit {
-    
+
     // Data lists
     surahs: Surah[] = [];
     ayahs: Ayah[] = [];
@@ -66,7 +66,7 @@ export class QuranTranslationComponent implements OnInit {
         this.selectedSurah = surah;
 
         // Load Ayahs for selected Surah
-        this.ayahs = this.quranDataService.getAyahsBySurah(surah.suraId);
+        this.ayahs = this.quranDataService.getAyahsBySurah(surah.id);
 
         // Auto-select first Ayah
         if (this.ayahs.length > 0) {
@@ -101,8 +101,8 @@ export class QuranTranslationComponent implements OnInit {
     private loadTranslations(): void {
         if (this.selectedAyah && this.selectedLanguage) {
             this.translations = this.quranDataService.getTranslations(
-                this.selectedAyah.ayaId,
-                this.selectedLanguage.languageId
+                this.selectedAyah.id,
+                this.selectedLanguage.name
             );
         } else {
             this.translations = [];
@@ -113,28 +113,28 @@ export class QuranTranslationComponent implements OnInit {
      * TrackBy function for Surah list
      */
     trackBySurahId(index: number, surah: Surah): number {
-        return surah.suraId;
+        return surah.id;
     }
 
     /**
      * TrackBy function for Ayah list
      */
     trackByAyahId(index: number, ayah: Ayah): number {
-        return ayah.ayaId;
+        return ayah.id;
     }
 
     /**
      * TrackBy function for Language list
      */
     trackByLanguageId(index: number, language: Language): number {
-        return language.languageId;
+        return language.id;
     }
 
     /**
      * TrackBy function for Translation list
      */
     trackByTranslationId(index: number, translation: Translation): number {
-        return translation.translationId;
+        return translation.id;
     }
 
     /**
@@ -159,5 +159,11 @@ export class QuranTranslationComponent implements OnInit {
             event.preventDefault();
             this.selectLanguage(language);
         }
+    }
+    truncateText(text: string, maxLength = 50): string {
+        if (text.length > maxLength) {
+            return text.substring(0, maxLength) + '...';
+        }
+        return text;
     }
 }

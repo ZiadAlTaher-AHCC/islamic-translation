@@ -54,9 +54,9 @@ export class TerminologyDetailsComponent implements OnInit {
         }
     }
 
-    get currentSynonyms(): string[] {
+    get currentSynonyms(): string {
         const t = this.term();
-        if (!t) return [];
+        if (!t) return '';
         switch (this.selectedSynonymLang()) {
             case 'english': return t.englishSynonyms;
             case 'french': return t.frenchSynonyms;

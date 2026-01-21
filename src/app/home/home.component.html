@@ -5,7 +5,7 @@
         <h2 class="title-primary">
             {{ translationService.translations()['HOME']?.['OUR_MESSAGE'] }}
         </h2>
-        <p class="subtitle">{{ translationService.translations()['HOME']?.['STATIC_CONTENT'] }}</p>
+        <p class="subtitle">{{ translationService.translations()['HOME']?.['OUR_MESSAGE_CONTENT'] }}</p>
         <!-- <div class="flex-center">
             <button class="btn-primary">
                 {{ translationService.translations()['NAV']?.['ABOUT'] }}
@@ -105,11 +105,62 @@
 
 <div class="section-light-bg">
     <div class="container text-center">
-        <h2 class="title-primary">Join Our Newsletter</h2>
-        <p class="subtitle">Stay updated with the latest news and translations.</p>
-        <div class="flex-center">
-            <input type="email" placeholder="Enter your email" class="input-field">
-            <button class="btn-primary">Subscribe</button>
-        </div>
+        <h2 class="title-primary">
+            {{ translationService.translations()['HOME']?.['CONTACT_US'] }}
+        </h2>
+        <p class="subtitle">{{ translationService.translations()['HOME']?.['CONTACT_US_SUBTITLE'] }}</p>
+
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmitContact()" class="contact-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <input type="text" formControlName="name"
+                        [placeholder]="translationService.translations()['HOME']?.['CONTACT_NAME_PLACEHOLDER']"
+                        class="input-field"
+                        [class.error]="contactForm.get('name')?.invalid && contactForm.get('name')?.touched">
+                    <span class="error-message"
+                        *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched">
+                        {{ translationService.translations()['HOME']?.['CONTACT_NAME_ERROR'] }}
+                    </span>
+                </div>
+
+                <div class="form-group">
+                    <input type="email" formControlName="email"
+                        [placeholder]="translationService.translations()['HOME']?.['CONTACT_EMAIL_PLACEHOLDER']"
+                        class="input-field"
+                        [class.error]="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">
+                    <span class="error-message"
+                        *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">
+                        {{ translationService.translations()['HOME']?.['CONTACT_EMAIL_ERROR'] }}
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="text" formControlName="address"
+                    [placeholder]="translationService.translations()['HOME']?.['CONTACT_ADDRESS_PLACEHOLDER']"
+                    class="input-field full-width"
+                    [class.error]="contactForm.get('address')?.invalid && contactForm.get('address')?.touched">
+                <span class="error-message"
+                    *ngIf="contactForm.get('address')?.invalid && contactForm.get('address')?.touched">
+                    {{ translationService.translations()['HOME']?.['CONTACT_ADDRESS_ERROR'] }}
+                </span>
+            </div>
+
+            <div class="form-group">
+                <textarea formControlName="message"
+                    [placeholder]="translationService.translations()['HOME']?.['CONTACT_MESSAGE_PLACEHOLDER']"
+                    class="input-field textarea-field full-width" rows="5"
+                    [class.error]="contactForm.get('message')?.invalid && contactForm.get('message')?.touched"></textarea>
+                <span class="error-message"
+                    *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched">
+                    {{ translationService.translations()['HOME']?.['CONTACT_MESSAGE_ERROR'] }}
+                </span>
+            </div>
+
+            <button type="submit" class="btn-primary" [disabled]="loadingService.isLoading()">
+                {{ loadingService.isLoading() ? 'Sending...' :
+                translationService.translations()['HOME']?.['CONTACT_SUBMIT'] }}
+            </button>
+        </form>
     </div>
 </div>

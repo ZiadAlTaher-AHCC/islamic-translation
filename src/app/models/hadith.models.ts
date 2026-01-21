@@ -1,26 +1,23 @@
-export interface HadithCollection {
+export interface HadithCategory {
     id: number;
     name: string;
-    nameArabic: string;
-}
-
-export interface HadithBook {
-    id: number;
-    name: string;
-    nameArabic: string;
-    collectionId: number;
 }
 
 export interface HadithChapter {
     id: number;
     name: string;
-    nameArabic: string;
-    bookId: number;
+    categoryId: number;
+}
+
+export interface HadithBabs {
+    id: number;
+    name: string;
+    chapterId: number;
 }
 
 export interface Hadith {
     id: number;
-    chapterId: number;
+    babId: number;
     textArabic: string;
 }
 
@@ -35,5 +32,4 @@ export interface HadithTranslation {
 export interface Language {
     id: number;
     name: string;
-    code: string;
 }

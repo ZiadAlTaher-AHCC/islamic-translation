@@ -1,13 +1,12 @@
 export interface TerminologyCategory {
     id: number;
-    name: string;
-    nameArabic: string;
+    titleEn: string;
+    titleAr: string;
 }
 
 export interface TerminologyLetter {
     id: number;
-    char: string;
-    charArabic: string;
+    name: string;
 }
 
 export interface Terminology {
@@ -21,12 +20,11 @@ export interface Terminology {
 
     // Classification
     categoryId: number;
-    categoryName: string; //تصنيفه
-    categoryNameArabic: string;
+    categoryNameEn: string; //تصنيفه
+    categoryNameAr: string;
 
     letterId: number;
     letterName: string;
-    letterNameArabic: string;
 
     voiceSpell: string; // كتابته صوتيا
 
@@ -36,9 +34,9 @@ export interface Terminology {
     spanish: string;
 
     // Synonyms
-    englishSynonyms: string[];
-    frenchSynonyms: string[];
-    spanishSynonyms: string[];
+    englishSynonyms: string;
+    frenchSynonyms: string;
+    spanishSynonyms: string;
 
     // Stats
     viewCount: number; // عدد المشاهدات

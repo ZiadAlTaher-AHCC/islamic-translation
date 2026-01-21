@@ -200,13 +200,3 @@ export class NewDetailsComponent {
 
 
 }
-
-//  --color-primary: #043915;
-//     --color-secondary: #4C763B;
-//     --color-accent: #B0CE88;
-//     --color-highlight: #FFFD8F;
-//     --color-white: #ffffff;
-//     --color-black: #000000;
-//     --color-text: #333333;
-//     --color-text-light: #666666;
-//     --color-light-bg: #f5f5f5;

@@ -1,34 +1,29 @@
 export interface Book {
     id: number;
     categoryId: number;
+    categoryNameAr: string;
+    categoryNameEn?: string;
 
     // Core Info
     title: string;
-    titleArabic: string;
 
     author: string;
-    authorArabic: string;
 
     translator?: string;
-    translatorArabic?: string;
 
     publisher: string;
-    publisherArabic: string;
 
-    sourceLang: string; // e.g. "Arabic", "English"
-    sourceLangArabic: string;
+    sourceLang: string;
 
-    targetLang: string; // e.g. "English", "French"
-    targetLangArabic: string;
+    targetLang: string;
 
     description: string;
-    descriptionArabic: string;
 
     imageUrl?: string;
 
     // Actions & Stats
     downloadLink?: string;
-    outSource?: boolean; // If true, opens in new tab
+    outSource?: string; // If true, opens in new tab
 
     viewCount: number;
     downloadCount: number;
